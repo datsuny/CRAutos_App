@@ -10,6 +10,9 @@ namespace CRAutos_App.Controllers
     {
         public ActionResult Index()
         {
+
+            /*comment test*/
+
             return View();
         }
 
