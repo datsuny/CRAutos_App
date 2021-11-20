@@ -25,6 +25,10 @@ namespace CRAutos_App
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/style-page").Include(
+                     "~/css/style-starter.css"));
+                 
         }
     }
 }

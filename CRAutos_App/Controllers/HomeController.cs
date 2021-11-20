@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CRAutos_App.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -29,5 +30,8 @@ namespace CRAutos_App.Controllers
 
             return View();
         }
+
+   
+      
     }
 }

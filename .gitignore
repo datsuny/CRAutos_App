@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/CRAutos_App/Models/CrAutosDB.tt
+/CRAutos_App/Models/CrAutosDB.edmx.diagram
+/CRAutos_App/Models/CrAutosDB.edmx

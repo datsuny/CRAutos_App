@@ -1,0 +1,118 @@
+﻿@model CRAutos_App.Models.Vendedor
+
+@{
+    ViewBag.Title = "Registrarse";
+}
+
+<!-- about breadcrumb -->
+<section class="w3l-about-breadcrumb position-relative text-center">
+    <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
+        <div class="container py-lg-5 py-3">
+            <h2 class="title">Registro de cuenta</h2>
+            <ul class="breadcrumbs-custom-path mt-2">
+                <li><a href="#url">Home</a></li>
+                <li class="active"><span class="fa fa-angle-double-right mx-2" aria-hidden="true"></span> Registro </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- //about breadcrumb -->
+<section class="w3l-contact-11">
+    <div class="form-41-mian py-5">
+        <div class="container py-lg-4">
+            <div class="row align-form-map">
+                <div class="col-lg-6 contact-left pr-lg-4">
+                    <div class="partners">
+                        <div class="cont-details">
+                            <div class="title-content text-left">
+                                <h6 class="sub-title">Registrate y Vende con nosotros tu auto</h6>
+                                <h3 class="hny-title">El mejor servicio en un momento.</h3>
+                            </div>
+                            <p class="mt-3 mb-4 pr-lg-5">
+                                Hola, ingresa tus datos personales para realizar la creación de tu cuenta
+                                y que puedas realizar las publicaciones de tus ventas.
+                            </p>
+                            <h6 class="mb-4"> GRACIAS POR CONFIAR EN NOSOTROS.</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 form-inner-cont">
+                    <div class="title-content text-left">
+                        <h3 class="hny-title mb-lg-5 mb-4"></h3>
+                    </div>
+                    <h6 class="mb-4"> Información personal.</h6>
+                    <form action="@Url.Content("~/Registrarse/Registrarse")" method="post" class="signin-form">
+                        <div class="row con-two">
+
+                            @Html.TextBoxFor(Model => Model.Nombre, new { placeholder = "Nombre", @class = "col-lg-6 form-input"})
+
+                            @Html.TextBoxFor(Model => Model.Apellido1, new { placeholder = "Primer apellido", @class = "col-lg-6 form-input" })
+
+                            @Html.TextBoxFor(Model => Model.Apellido2, new { placeholder = "Segundo apellido", @class = "col-lg-6 form-input" })
+
+                            @Html.TextBoxFor(Model => Model.Telefono, new { placeholder = "Telefono", @class = "col-lg-6 form-input" })
+
+                            @Html.TextBoxFor(Model => Model.Empresa, new { placeholder = "Empresa", @class = "col-lg-6 form-input" })
+
+                            @Html.TextBoxFor(Model => Model.Correo, new { placeholder = "Correo electronico", @class = "form-control" })
+
+                        </div>
+
+                        <h6 class="mb-4"> Datos para ingresar a su cuenta.</h6>
+
+                        <div class="form-input">
+                            @Html.TextBoxFor(Model => Model.NombreUsuario, new { placeholder = "Nombre de usuario", @class = "form-control" })
+                            @Html.PasswordFor(Model => Model.Contrasenna, new { placeholder = "Contraseña", @class = "form-control" })
+                        </div>
+
+                        <div class="submit-button text-lg-right">
+                            <button type="submit" class="btn btn-style">Crear cuenta</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- //contact-form -->
+<!-- Template JavaScript -->
+<script src="~/js/jquery-3.3.1.min.js"></script>
+<script src="~/js/theme-change.js"></script>
+<!-- disable body scroll which navbar is in active -->
+<script>
+    $(function () {
+        $('.navbar-toggler').click(function () {
+            $('body').toggleClass('noscroll');
+        })
+    });
+</script>
+<!-- disable body scroll which navbar is in active -->
+<!--/MENU-JS-->
+<script>
+    $(window).on("scroll", function () {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function () {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function () {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function () {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+</script>
+
