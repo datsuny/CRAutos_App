@@ -132,6 +132,7 @@
     <Compile Include="Controllers\IniciarSesionController.cs" />
     <Compile Include="Controllers\RegistrarseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\VerCarrosController.cs" />
     <Compile Include="ETL\TipoVendedor.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -281,6 +282,7 @@
     <Content Include="Views\Home\Services.cshtml" />
     <Content Include="Views\Registrarse\Registrarse.cshtml" />
     <Content Include="Views\IniciarSesion\IniciarSesion.cshtml" />
+    <Content Include="Views\VerCarros\VerCarros.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

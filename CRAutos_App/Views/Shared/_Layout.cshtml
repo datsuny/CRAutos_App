@@ -36,17 +36,18 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav nav-link" >
+                    <ul class="navbar-nav nav-link">
 
                         @if (Session["VendedorLogeado"] != null)
                         {
                             <li class="nav-link">@Html.ActionLink("Home", "Index", "Home")</li>
-                            
+
                         }
                         else
                         {
                             <li class="nav-link">@Html.ActionLink("Home", "Index", "Home")</li>
                             <li class="nav-link">@Html.ActionLink("Registrarse", "Registrarse", "Registrarse")</li>
+                            <li class="nav-link">@Html.ActionLink("Ver autos en venta", "VerCarros", "VerCarros")</li>
                         }
                     </ul> 
                     <ul class="navbar-nav search-right mt-lg-0 mt-2">

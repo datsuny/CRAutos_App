@@ -27,7 +27,7 @@ namespace CRAutos_App.Models
                     nuevoVendedor.Telefono = vendedor.Telefono;
                     nuevoVendedor.Correo = vendedor.Correo;
                     nuevoVendedor.IDTipoVendedor = null;
-                    nuevoVendedor.Empresa = null;
+                    nuevoVendedor.Empresa = vendedor.Empresa;
                     nuevoVendedor.Calificación = null;
 
 
