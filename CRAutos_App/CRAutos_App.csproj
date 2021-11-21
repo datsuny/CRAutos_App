@@ -231,6 +231,7 @@
     <Content Include="js\jquery.countup.js" />
     <Content Include="js\jquery.magnific-popup.min.js" />
     <Content Include="js\jquery.waypoints.min.js" />
+    <Content Include="js\MostrarPublicaciones.js" />
     <Content Include="js\owl.carousel.js" />
     <Content Include="js\theme-change.js" />
     <Content Include="Models\CrAutosDB.Context.tt">
