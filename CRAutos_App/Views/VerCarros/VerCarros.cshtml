@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<CRAutos_App.Models.TBPublicaciones>
+
 @{
     ViewBag.Title = "VerCarros";
 }
@@ -21,20 +22,24 @@
         </div>
         <div class="row w3-services-grids">
             <!--Card-->
-            <div class="col-lg-4 col-md-6 causes-grid">
-                <div class="causes-grid-info">
-                    <h3 class="cause-title" id="Precio_Publicacion">$</h3>
-                    <img src="~/images/ab1.jpg" class="img-fuild" alt="">
-                    <a href="#" class="cause-title-wrap">
-                        <h4 class="cause-title" id="titulo_publicacion"></h4>
-                    </a>
-                    <p class="card-text mb-0" id="Descripcion_Publicacion">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6 causes-grid">
+                    <div class="causes-grid-info">
+                        <h3 class="cause-title" id="Precio_Publicacion">@item.Precio</h3>
+                        <img src="~/images/ab1.jpg" class="img-fuild" alt="">
+                        <a href="#" class="cause-title-wrap">
+                            <h4 class="cause-title" id="titulo_publicacion">@item.TituloPublicacion</h4>
+                        </a>
+                        <p class="card-text mb-0" id="Descripcion_Publicacion">
+                            @item.Descripcion
+                        </p>
 
-                    </p>
-
-                    <a href="services.html" class="btn btn-style btn-primary mt-4">Read More</a>
+                        <a href="services.html" class="btn btn-style btn-primary mt-4">Read More</a>
+                    </div>
                 </div>
-            </div>
+            }
+
             <!--/Card-->
         </div>
     </div>
@@ -43,7 +48,6 @@
 <!-- Template JavaScript -->
 <script src="~/js/jquery-3.3.1.min.js"></script>
 <script src="~/js/theme-change.js"></script>
-<script src="~/js/MostrarPublicaciones.js"></script>
 <!-- disable body scroll which navbar is in active -->
 <script>
     $(function () {

@@ -19,14 +19,12 @@ namespace CRAutos_App.Controllers
 
             if (publicacion.Count > 0)
             {
-                return Json(publicacion, JsonRequestBehavior.AllowGet);
+                return View(publicacion);
             }
             else
             {
-                return Json(publicacion, JsonRequestBehavior.DenyGet);
+                return View(publicacion);
             }
-
-            //return View();
         }
     }
 }
