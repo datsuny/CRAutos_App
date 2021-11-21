@@ -1,0 +1,88 @@
+﻿@model IEnumerable<CRAutos_App.Models.TBPublicaciones>
+@{
+    ViewBag.Title = "ProcesoConsulta";
+}
+
+
+<!-- about breadcrumb -->
+<section class="w3l-about-breadcrumb position-relative text-center">
+    <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
+    </div>
+</section>
+<!-- //about breadcrumb -->
+<section class="w3l-contact-11">
+    <div class="form-41-mian py-5">
+        <div class="container py-lg-4">
+            <div class="row align-form-map">
+                <div class="col-lg-6 form-inner-cont ">
+
+                    <form action="../Publicaciones/ProcesoVehiculo" method="post">
+                        <div class="submit-button text-lg-center">
+                            <button type="submit" class="btn btn-style">Crear Publicacion</button>
+                        </div>
+                    </form>
+
+                    <br />
+                    <h1>Registro de publicaciones</h1>
+                    <br />
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-4 col-md-6 causes-grid">
+                            <div class="causes-grid-info">
+                                <img src="~/images/ab1.jpg" class="img-fuild" alt="">
+                                <a href="#" class="cause-title-wrap">
+                                    <h4 class="cause-title" id="titulo_publicacion">@item.TituloPublicacion</h4>
+                                </a>
+                                <p class="card-text mb-0" id="Descripcion_Publicacion">
+                                    @item.Descripcion
+                                </p>
+                                <h3 class="cause-title" id="Precio_Publicacion">@item.Precio</h3>
+                                <br />
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //contact-form -->
+<!-- Template JavaScript -->
+<script src="~/js/jquery-3.3.1.min.js"></script>
+<script src="~/js/theme-change.js"></script>
+<!-- disable body scroll which navbar is in active -->
+<script>
+    $(function () {
+      $('.navbar-toggler').click(function () {
+        $('body').toggleClass('noscroll');
+      })
+    });
+</script>
+<!-- disable body scroll which navbar is in active -->
+<!--/MENU-JS-->
+<script>
+    $(window).on("scroll", function () {
+      var scroll = $(window).scrollTop();
+
+      if (scroll >= 80) {
+        $("#site-header").addClass("nav-fixed");
+      } else {
+        $("#site-header").removeClass("nav-fixed");
+      }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function () {
+      $("header").toggleClass("active");
+    });
+    $(document).on("ready", function () {
+      if ($(window).width() > 991) {
+        $("header").removeClass("active");
+      }
+      $(window).on("resize", function () {
+        if ($(window).width() > 991) {
+          $("header").removeClass("active");
+        }
+      });
+    });
+</script>

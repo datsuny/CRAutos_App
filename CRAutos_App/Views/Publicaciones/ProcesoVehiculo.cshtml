@@ -1,0 +1,111 @@
+﻿@model CRAutos_App.Models.TBVehiculo
+
+@{
+    ViewBag.Title = "ProcesoVehiculo";
+}
+
+
+<!-- about breadcrumb -->
+<section class="w3l-about-breadcrumb position-relative text-center">
+    <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
+    </div>
+</section>
+<!-- //about breadcrumb -->
+<section class="w3l-contact-11">
+    <div class="form-41-mian py-5">
+        <div class="container py-lg-4">
+            <div class="row align-form-map">
+                <div class="col-lg-6 contact-left pr-lg-4">
+                    <div class="partners">
+                        <div class="cont-details">
+                            <div class="title-content text-left">
+                                <h3 class="hny-title">Registro de Vehiculo</h3>
+                            </div>
+                            <p class="mt-3 mb-4 pr-lg-5">
+                                En esta seccion de la pagina podra ingresar los datos obligatorios que se necesitan para registrar el vehiculo en Cr autos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 form-inner-cont">
+                    @using (Html.BeginForm("ProcesoVehiculo", "Publicaciones", FormMethod.Post))
+                    {
+
+                        @Html.Label("Matricula")
+                        @Html.TextBoxFor(Model => Model.Matricula, new { @class = "form-control" })
+
+                        @Html.Label("Kilometraje")
+                        @Html.TextBoxFor(Model => Model.Kilometraje, new { @class = "form-control" })
+
+                        @Html.Label("Cilindraje")
+                        @Html.TextBoxFor(Model => Model.Cilindraje, new { @class = "form-control" })
+
+                        @Html.Label("Transmision")
+                        @Html.TextBoxFor(Model => Model.Transmision, new { @class = "form-control" })
+
+                        @Html.Label("Color Vehiculo")
+                        @Html.TextBoxFor(Model => Model.Color, new { @class = "form-control" })
+
+                        @Html.Label("Numero Puertas")
+                        @Html.TextBoxFor(Model => Model.NumeroPuertas, new { @class = "form-control" });
+
+                        @Html.Label("Año fabricacion")
+                        @Html.TextBoxFor(Model => Model.Año, new { @class = "form-control" })
+
+                        @Html.Label("Tipo de combustible")
+                        @Html.TextBoxFor(Model => Model.Combustible, new { @class = "form-control" })
+
+                        @Html.Label("Tipo de combustible")
+                        @Html.TextBoxFor(Model => Model.Combustible, new { @class = "form-control" })
+
+                        <input type="File" name="Foto" value="Fotos del vehiculo" />
+
+                        <div class="submit-button text-lg-right">
+                            <button type="submit" class="btn btn-style">Publicar Vehiculo</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //contact-form -->
+<!-- Template JavaScript -->
+<script src="~/js/jquery-3.3.1.min.js"></script>
+<script src="~/js/theme-change.js"></script>
+<!-- disable body scroll which navbar is in active -->
+<script>
+    $(function () {
+      $('.navbar-toggler').click(function () {
+        $('body').toggleClass('noscroll');
+      })
+    });
+</script>
+<!-- disable body scroll which navbar is in active -->
+<!--/MENU-JS-->
+<script>
+    $(window).on("scroll", function () {
+      var scroll = $(window).scrollTop();
+
+      if (scroll >= 80) {
+        $("#site-header").addClass("nav-fixed");
+      } else {
+        $("#site-header").removeClass("nav-fixed");
+      }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function () {
+      $("header").toggleClass("active");
+    });
+    $(document).on("ready", function () {
+      if ($(window).width() > 991) {
+        $("header").removeClass("active");
+      }
+      $(window).on("resize", function () {
+        if ($(window).width() > 991) {
+          $("header").removeClass("active");
+        }
+      });
+    });
+</script>
