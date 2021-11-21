@@ -134,11 +134,13 @@
     <Compile Include="Controllers\RegistrarseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VerCarrosController.cs" />
+    <Compile Include="ETL\Publicacion.cs" />
     <Compile Include="ETL\TipoVendedor.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BuscarUsuario.cs" />
+    <Compile Include="Models\ConsultaVehiculo.cs" />
     <Compile Include="Models\CrAutosDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
