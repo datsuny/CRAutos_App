@@ -11,7 +11,7 @@ namespace CRAutos_App.Controllers
     {
         public ActionResult ProcesoConsulta(Vendedor vendedor)
         {
-
+            /*logica*/
             modeloPublicaciones modelo = new modeloPublicaciones();
 
             TBUsuario usuario = (TBUsuario)Session["vendedorLogeado"];
