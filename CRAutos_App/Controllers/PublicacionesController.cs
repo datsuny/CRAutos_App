@@ -76,7 +76,7 @@ namespace CRAutos_App.Controllers
 
             AgregarPublicacionModel agregarPublicacion = new AgregarPublicacionModel();
 
-             var respuesta2 = agregarPublicacion.AgregarPublicacion();
+             var respuesta2 = agregarPublicacion.AgregarPublicacion(vehiculo);
 
 
 
