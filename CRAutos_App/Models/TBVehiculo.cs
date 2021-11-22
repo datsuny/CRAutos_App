@@ -31,7 +31,7 @@ namespace CRAutos_App.Models
         public int NumeroPuertas { get; set; }
         public int Año { get; set; }
         public string Combustible { get; set; }
-        public long IDMarca { get; set; }
+        public Nullable<long> IDMarca { get; set; }
         public string TipoModelo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

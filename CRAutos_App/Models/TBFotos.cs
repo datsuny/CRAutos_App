@@ -15,8 +15,7 @@ namespace CRAutos_App.Models
     public partial class TBFotos
     {
         public long IDFoto { get; set; }
-        public string image_name { get; set; }
-        public byte[] image { get; set; }
+        public string Imagen { get; set; }
         public long IDVehiculo { get; set; }
     
         public virtual TBVehiculo TBVehiculo { get; set; }

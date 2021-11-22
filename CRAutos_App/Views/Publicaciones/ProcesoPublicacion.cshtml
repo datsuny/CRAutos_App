@@ -1,4 +1,5 @@
-﻿
+﻿@model CRAutos_App.Models.TBPublicaciones
+
 @{
     ViewBag.Title = "ProcesoPublicacion";
 }
@@ -26,38 +27,14 @@
                     </div>
                 </div>
                 <div class="col-lg-6 form-inner-cont">
-                    <form action="../Publicaciones/ProcesoConsulta" method="post" class="signin-form">
+                    @using (Html.BeginForm("ProcesoPublicacion", "Publicaciones", FormMethod.Post))
+                    {
 
-                        <div class="form-input">
-                            <p>Foto de portada de la publicacion</p>
-                            <input type="file" name="w3lName" id="w3lName" placeholder="Foto de portada de la publicacion" />
-                        </div>
+                        @Html.Label("Titulo de la publicación")
+                        @Html.TextBoxFor(Model => Model.TituloPublicacion, new { @class = "form-control" })
 
-                        <div class="form-input">
-                            <input type="text" name="w3lName" id="w3lName" placeholder="Titulo de la publicacion" />
-                        </div>
-
-                        <div class="form-input">
-                            <input type="text" name="w3lName" id="w3lName" placeholder="Descripcion" />
-                        </div>
-
-                        <div class="form-input">
-                            <input type="date" name="w3lName" id="w3lName" placeholder="Fecha de la publicacion" />
-                        </div>
-
-                        <div class="form-input">
-                            <input type="text" name="w3lName" id="w3lName" placeholder="Ubicacion del vehiculo" />
-                        </div>
-
-                        <div class="form-input">
-                            <input type="number" name="w3lName" id="w3lName" placeholder="Precio del vehiculo" />
-                        </div>
-
-
-                        <div class="submit-button text-lg-right">
-                            <button type="submit" class="btn btn-style">Publicar Vehiculo</button>
-                        </div>
-                    </form>
+                      
+                    }
                 </div>
             </div>
         </div>
