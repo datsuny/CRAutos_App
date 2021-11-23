@@ -11,18 +11,13 @@ namespace CRAutos_App.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Web;
-
+    
     public partial class TBPublicaciones
     {
         public long IDPublicacion { get; set; }
         public string TituloPublicacion { get; set; }
         public long IDVehiculo { get; set; }
         public string Imagen { get; set; }
-
-        [NotMapped]
-        public HttpPostedFileBase ImageFile { get; set; }
         public System.DateTime Fecha { get; set; }
         public decimal Precio { get; set; }
         public string Descripcion { get; set; }

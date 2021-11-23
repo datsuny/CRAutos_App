@@ -11,6 +11,8 @@ namespace CRAutos_App.Controllers
 {
     public class PublicacionesController : Controller
     {
+        /*---------------------------------------------------------------------------*/
+        //SE CONSULTA LAS PUBLICACIONES QUE CONTIENE EL USUARIOS LOGUEADO
         [HttpGet]
         public ActionResult ProcesoConsulta(Vendedor vendedor)
         {
@@ -33,70 +35,142 @@ namespace CRAutos_App.Controllers
             }
         }
 
+        /*---------------------------------------------------------------------------*/
+
+        //SE CONSULTA LAS MARCAS PARA INGRESAR AL VISTA Y VER EL LOS DATOS A LLENAR
+        private IEnumerable<SelectListItem> Marcas;
+        private IEnumerable<SelectListItem> Condicion;
+        private IEnumerable<SelectListItem> Estatus;
         [HttpGet]
         public ActionResult ProcesoVehiculo()
         {
-            DatosVehiculo vehiculo = new DatosVehiculo();
-            return View(vehiculo);
+            llenarMarca();
+            llenarCondicion();
+            llenarEstus();
+            ListasdedatosPublicacion modelo = new ListasdedatosPublicacion();
+            DatosVehiculo datos = new DatosVehiculo();
+            datos.listaMarcas = Marcas;
+            datos.listaCondicion = Condicion;
+            datos.listaEstatus = Estatus;
+
+            return View(datos);
+            
+        }
+        private void llenarMarca()
+        {
+            Marcas = new ListasdedatosPublicacion().consultaMarca().ToList().Select(m => 
+            new SelectListItem { Value = m.IDMarca.ToString(), Text = m.NombreMarca });
         }
 
+        /*---------------------------------------------------------------------------*/
 
+        //Se registra el vehiculo
         [HttpPost]
-        public ActionResult ProcesoVehiculo(DatosVehiculo vehiculo)
+        public ActionResult ProcesoVehiculo(CRAutos_App.ETL.DatosVehiculo datos)
         {
-            AgregarVehiculoModel agregar = new AgregarVehiculoModel();
-
-            var respuesta = agregar.AgregarVehiculo(vehiculo);
-
-            if (respuesta != null)
+            using (CrAutosDBEntities context = new CrAutosDBEntities())
             {
-                using (CrAutosDBEntities context = new CrAutosDBEntities())
+                var consulta = (from x in context.TBVehiculo
+                                where x.Matricula == datos.Matricula
+                                select x).FirstOrDefault();
+
+                if (consulta == null)
                 {
-                    var buscarVehiculo = (from x in context.TBVehiculo
-                                          where x.Matricula == vehiculo.Matricula
-                                          select x).FirstOrDefault();
+                    TBVehiculo nuevoVehiculo = new TBVehiculo();
+                    nuevoVehiculo.Matricula = datos.Matricula;
+                    nuevoVehiculo.Kilometraje = datos.Kilometraje;
+                    nuevoVehiculo.Cilindraje = datos.Cilindraje;
+                    nuevoVehiculo.Transmision = datos.Transmision;
+                    nuevoVehiculo.Color = datos.Color;
+                    nuevoVehiculo.NumeroPuertas = datos.NumeroPuertas;
+                    nuevoVehiculo.Año = datos.Año;
+                    nuevoVehiculo.Combustible = datos.Combustible;
+                    nuevoVehiculo.IDMarca = datos.IDMarca;
+                    nuevoVehiculo.IDModelo = null;
 
-                    string filename = Path.GetFileNameWithoutExtension(vehiculo.ImageFile.FileName);
-                    string extension = Path.GetExtension(vehiculo.ImageFile.FileName);
-                    filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
-                    vehiculo.Imagen = "../Imagen/" + filename;
-                    filename = Path.Combine(Server.MapPath("../Imagen/"), filename);
-                    vehiculo.ImageFile.SaveAs(filename);
-
-                    TBFotos fotoVehiculo = new TBFotos();
-                    fotoVehiculo.Imagen = filename;
-                    fotoVehiculo.IDVehiculo = buscarVehiculo.IDVehiculo;
-
-
-                    context.TBFotos.Add(fotoVehiculo);
+                    context.TBVehiculo.Add(nuevoVehiculo);
                     context.SaveChanges();
-                   
+
+                    agregarFotosVehiculo(datos);
+                    procesoPublicacion(datos);
+
                 }
             }
-
-            AgregarPublicacionModel agregarPublicacion = new AgregarPublicacionModel();
-
-             var respuesta2 = agregarPublicacion.AgregarPublicacion(vehiculo);
-
-
-
-            return RedirectToAction("ProcesoPublicacion");
-
+            return RedirectToAction("ProcesoConsulta", "Publicaciones");
         }
 
-        //[HttpGet]
-        //public ActionResult ProcesoPublicacion()
-        //{
-        //   TBPublicaciones publicaciones = new TBPublicaciones();
-        //    return View(publicaciones);
-        //}
+        /*---------------------------------------------------------------------------*/
+        public void agregarFotosVehiculo(DatosVehiculo datos)
+        {
+            using (CrAutosDBEntities contexto = new CrAutosDBEntities())
+            {
+                var carroIngresado = (from x in contexto.TBVehiculo
+                                 where x.Matricula == datos.Matricula
+                                 select x).FirstOrDefault();
 
-        //public ActionResult ProcesoPublicacion(TBPublicaciones publicacio)
-        //{
-        //    AgregarPublicacionModel agregar = new AgregarPublicacionModel();
+                string filename = Path.GetFileNameWithoutExtension(datos.ImageFile.FileName);
+                string extension = Path.GetExtension(datos.ImageFile.FileName);
+                filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+                datos.Imagen = "../Imagen/" + filename;
+                filename = Path.Combine(Server.MapPath("../Imagen/"), filename);
+                datos.ImageFile.SaveAs(filename);
 
-        //    var respuesta = agregar.AgregarPublicacion();
-        //    return View();
-        //}
+                TBFotos imagen = new TBFotos();
+                imagen.IDVehiculo = carroIngresado.IDVehiculo;
+                imagen.Imagen = datos.Imagen;
+
+                contexto.TBFotos.Add(imagen);
+                contexto.SaveChanges();
+            }
+        }
+
+        /*---------------------------------------------------------------------------*/
+        public void procesoPublicacion(DatosVehiculo datos)
+        {
+            using (CrAutosDBEntities contexto = new CrAutosDBEntities())
+            {
+                var carroIngresado = (from x in contexto.TBVehiculo
+                                      where x.Matricula == datos.Matricula
+                                      select x).FirstOrDefault();
+
+                TBPublicaciones publicacion = new TBPublicaciones();
+                publicacion.TituloPublicacion = datos.TituloPublicacion;
+                publicacion.Descripcion = datos.Descripcion;
+                publicacion.Precio = datos.Precio;
+                publicacion.Ubicacion = datos.Ubicacion;
+                publicacion.IDVehiculo = carroIngresado.IDVehiculo;
+                publicacion.Fecha = DateTime.Now;
+                publicacion.IDEstatus = datos.IDEstatus;
+                publicacion.IDCondicion = datos.IDCondicion;
+
+                TBUsuario usuario = (TBUsuario)Session["vendedorLogeado"];
+                publicacion.IDVendedor = usuario.IDVendedor;
+
+                string filename = Path.GetFileNameWithoutExtension(datos.ImagePortada.FileName);
+                string extension = Path.GetExtension(datos.ImagePortada.FileName);
+                filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+                datos.Portada = "../Imagen/" + filename;
+                filename = Path.Combine(Server.MapPath("../Imagen/"), filename);
+                datos.ImagePortada.SaveAs(filename);
+
+                publicacion.Imagen = datos.Portada;
+
+                contexto.TBPublicaciones.Add(publicacion);
+                contexto.SaveChanges();
+
+            }
+        }
+
+        /*---------------------------------------------------------------------------*/
+        private void llenarCondicion()
+        {
+            Condicion = new ListasdedatosPublicacion().consultaCondicion().ToList().Select(m =>
+            new SelectListItem { Value = m.IDCondicion.ToString(), Text = m.CondicionVehiculo });
+        }
+        private void llenarEstus()
+        {
+            Estatus = new ListasdedatosPublicacion().consultaEstatus().ToList().Select(m =>
+            new SelectListItem { Value = m.IDEstatus.ToString(), Text = m.Estatus });
+        }
     }
 }

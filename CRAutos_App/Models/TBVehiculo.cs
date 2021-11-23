@@ -32,13 +32,14 @@ namespace CRAutos_App.Models
         public int Año { get; set; }
         public string Combustible { get; set; }
         public Nullable<long> IDMarca { get; set; }
-        public string TipoModelo { get; set; }
+        public Nullable<long> IDModelo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBExtrasVehiculo> TBExtrasVehiculo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBFotos> TBFotos { get; set; }
         public virtual TBMarca TBMarca { get; set; }
+        public virtual TBModelo TBModelo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBPublicaciones> TBPublicaciones { get; set; }
     }

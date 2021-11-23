@@ -153,17 +153,12 @@
     <Compile Include="Controllers\RegistrarseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VerCarrosController.cs" />
-    <Compile Include="ETL\datosConsulta.cs" />
     <Compile Include="ETL\DatosVehiculo.cs" />
     <Compile Include="ETL\Publicacion.cs" />
     <Compile Include="ETL\TipoVendedor.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AgregarPublicacionModel.cs" />
-    <Compile Include="Models\AgregarVehiculoModel.cs" />
-    <Compile Include="Models\BuscarUsuario.cs" />
-    <Compile Include="Models\ConsultaVehiculo.cs" />
     <Compile Include="Models\CrAutosDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -179,6 +174,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CrAutosDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ListasdedatosPublicacion.cs" />
+    <Compile Include="Models\BuscarUsuario.cs" />
+    <Compile Include="Models\ConsultaVehiculo.cs" />
     <Compile Include="Models\modeloPublicaciones.cs" />
     <Compile Include="Models\RegistrarVendedor.cs" />
     <Compile Include="ETL\Vendedor.cs" />
@@ -313,10 +311,10 @@
     <Content Include="Views\VerCarros\VerCarros.cshtml" />
     <Content Include="Views\Publicaciones\ProcesoConsulta.cshtml" />
     <Content Include="Views\Publicaciones\ProcesoVehiculo.cshtml" />
-    <Content Include="Views\Publicaciones\ProcesoPublicacion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Imagen\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css.map" />
