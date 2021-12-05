@@ -311,6 +311,7 @@
     <Content Include="Views\VerCarros\VerCarros.cshtml" />
     <Content Include="Views\Publicaciones\ProcesoConsulta.cshtml" />
     <Content Include="Views\Publicaciones\ProcesoVehiculo.cshtml" />
+    <Content Include="Views\VerCarros\modal_ver_detalles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
