@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "ErrorPagina";
+}
+
+
+<!-- about breadcrumb -->
+<section class="w3l-about-breadcrumb position-relative text-center">
+    <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
+        <div class="container py-lg-5 py-3">
+
+        </div>
+    </div>
+</section>
+<!-- //about breadcrumb -->
+<section >
+    <div class="row">
+        <div class="container py-lg-5">
+            <div class="text-lg-center">
+                <div class="col-md-6  offset-3 text-lg-center">
+                    <div class="title-content text-center">
+                        <h3 class="hny-title mb-lg-5 mb-4"></h3>
+                        <div class="title-content text-center">
+                            <h3 class="hny-title">Ocurrio un problema</h3>
+                        </div>
+                        <p class="mt-3 mb-4 pr-lg-5">
+                            Lamentamos informar que se produjo un error al realizar la transaccion por favor inicie de nuevo.
+                        </p>
+                        <br />
+                        <br />
+                        <img src="https://cdn-icons.flaticon.com/png/512/3273/premium/3273666.png?token=exp=1639262190~hmac=9c7a3fd29b7ea72043129217f012eb7f" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- //contact-form -->
+<!-- Template JavaScript -->
+<script src="~/js/jquery-3.3.1.min.js"></script>
+<script src="~/js/theme-change.js"></script>
+
+<!-- disable body scroll which navbar is in active -->
+<script>
+    $(function () {
+        $('.navbar-toggler').click(function () {
+            $('body').toggleClass('noscroll');
+        })
+    });
+</script>
+<!-- disable body scroll which navbar is in active -->
+<!--/MENU-JS-->
+<script>
+    $(window).on("scroll", function () {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function () {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function () {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function () {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+</script>

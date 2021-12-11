@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<CRAutos_App.Models.TBPublicaciones>
 @{
-    ViewBag.Title = "ProcesoConsulta";
+    ViewBag.Title = "PublicacionesVehiculos";
 }
 
 
@@ -15,9 +15,9 @@
         <div class="title-content text-left mb-lg-5 mb-4">
             <h6 class="sub-title">Publicaciones Registradas</h6>
         </div>
-        <form action="../Publicaciones/ProcesoVehiculo" method="get">
+        <form action="../Publicaciones/RegistroVehiculo" method="get">
             <div class="submit-button text-lg-center">
-                <button type="submit" class="btn btn-style">Crear Publicacion</button>
+                <button type="submit" class="btn btn-style">Registrar vehiculo</button>
             </div>
         </form>
         <div class="row w3-services-grids">
@@ -86,5 +86,3 @@
             });
         });
     </script>
-
-    <script src="~/js/bootstrap.min.js"></script>

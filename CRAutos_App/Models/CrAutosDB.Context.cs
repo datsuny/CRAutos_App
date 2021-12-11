@@ -26,12 +26,12 @@ namespace CRAutos_App.Models
         }
     
         public virtual DbSet<TBCondicionVehiculo> TBCondicionVehiculo { get; set; }
+        public virtual DbSet<TBDetalleVehiculo> TBDetalleVehiculo { get; set; }
         public virtual DbSet<TBEstatusPublicacion> TBEstatusPublicacion { get; set; }
         public virtual DbSet<TBExtra> TBExtra { get; set; }
         public virtual DbSet<TBExtrasVehiculo> TBExtrasVehiculo { get; set; }
         public virtual DbSet<TBFotos> TBFotos { get; set; }
         public virtual DbSet<TBMarca> TBMarca { get; set; }
-        public virtual DbSet<TBModelo> TBModelo { get; set; }
         public virtual DbSet<TBPublicaciones> TBPublicaciones { get; set; }
         public virtual DbSet<TBTipoVendedor> TBTipoVendedor { get; set; }
         public virtual DbSet<TBUsuario> TBUsuario { get; set; }

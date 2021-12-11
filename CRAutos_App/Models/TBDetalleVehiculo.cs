@@ -12,18 +12,18 @@ namespace CRAutos_App.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class TBMarca
+    public partial class TBDetalleVehiculo
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TBMarca()
-        {
-            this.TBVehiculo = new HashSet<TBVehiculo>();
-        }
+        public long IDDetalleVehiculo { get; set; }
+        public long IDVehiculo { get; set; }
+        public decimal Kilometraje { get; set; }
+        public string Cilindraje { get; set; }
+        public string Transmision { get; set; }
+        public string Color { get; set; }
+        public int NumeroPuertas { get; set; }
+        public int Año { get; set; }
+        public string Combustible { get; set; }
     
-        public long IDMarca { get; set; }
-        public string NombreMarca { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBVehiculo> TBVehiculo { get; set; }
+        public virtual TBVehiculo TBVehiculo { get; set; }
     }
 }

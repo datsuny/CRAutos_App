@@ -17,6 +17,7 @@ namespace CRAutos_App.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TBVehiculo()
         {
+            this.TBDetalleVehiculo = new HashSet<TBDetalleVehiculo>();
             this.TBExtrasVehiculo = new HashSet<TBExtrasVehiculo>();
             this.TBFotos = new HashSet<TBFotos>();
             this.TBPublicaciones = new HashSet<TBPublicaciones>();
@@ -24,22 +25,16 @@ namespace CRAutos_App.Models
     
         public long IDVehiculo { get; set; }
         public string Matricula { get; set; }
-        public decimal Kilometraje { get; set; }
-        public string Cilindraje { get; set; }
-        public string Transmision { get; set; }
-        public string Color { get; set; }
-        public int NumeroPuertas { get; set; }
-        public int Año { get; set; }
-        public string Combustible { get; set; }
         public Nullable<long> IDMarca { get; set; }
-        public Nullable<long> IDModelo { get; set; }
+        public string TipoModelo { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBDetalleVehiculo> TBDetalleVehiculo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBExtrasVehiculo> TBExtrasVehiculo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBFotos> TBFotos { get; set; }
         public virtual TBMarca TBMarca { get; set; }
-        public virtual TBModelo TBModelo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBPublicaciones> TBPublicaciones { get; set; }
     }

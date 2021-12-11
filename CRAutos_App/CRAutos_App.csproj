@@ -155,6 +155,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VerCarrosController.cs" />
     <Compile Include="ETL\CambiarContrasenna.cs" />
+    <Compile Include="ETL\datosDetalle.cs" />
+    <Compile Include="ETL\datosPublicacion.cs" />
     <Compile Include="ETL\DatosVehiculo.cs" />
     <Compile Include="ETL\DetallesPublicacion.cs" />
     <Compile Include="ETL\Publicacion.cs" />
@@ -163,6 +165,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\buscarVehiculo.cs" />
     <Compile Include="Models\CrAutosDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -185,7 +188,12 @@
     <Compile Include="Models\RecuperarContrasennaModel.cs" />
     <Compile Include="Models\RegistrarVendedor.cs" />
     <Compile Include="ETL\Vendedor.cs" />
+    <Compile Include="Models\registroDetallesVehiculo.cs" />
+    <Compile Include="Models\RegistroVehiculo.cs" />
     <Compile Include="Models\TBCondicionVehiculo.cs">
+      <DependentUpon>CrAutosDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TBDetalleVehiculo.cs">
       <DependentUpon>CrAutosDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TBEstatusPublicacion.cs">
@@ -201,9 +209,6 @@
       <DependentUpon>CrAutosDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TBMarca.cs">
-      <DependentUpon>CrAutosDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TBModelo.cs">
       <DependentUpon>CrAutosDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TBPublicaciones.cs">
@@ -314,13 +319,16 @@
     <Content Include="Views\Registrarse\Registrarse.cshtml" />
     <Content Include="Views\IniciarSesion\IniciarSesion.cshtml" />
     <Content Include="Views\VerCarros\VerCarros.cshtml" />
-    <Content Include="Views\Publicaciones\ProcesoConsulta.cshtml" />
-    <Content Include="Views\Publicaciones\ProcesoVehiculo.cshtml" />
     <Content Include="Views\VerCarros\modal_ver_detalles.cshtml" />
     <Content Include="Views\VerCarros\mostrarDetalles.cshtml" />
     <Content Include="Views\RecuperarContra\CambiarContrasenna.cshtml" />
     <Content Include="Views\RecuperarContra\ErrorTokenInvalido.cshtml" />
     <Content Include="Views\RecuperarContra\Recuperar.cshtml" />
+    <Content Include="Views\Publicaciones\PublicacionesVehiculos.cshtml" />
+    <Content Include="Views\Publicaciones\RegistroDetallesVehiculo.cshtml" />
+    <Content Include="Views\Publicaciones\RegistroPublicacion.cshtml" />
+    <Content Include="Views\Publicaciones\RegistroVehiculo.cshtml" />
+    <Content Include="Views\Shared\ErrorPagina.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

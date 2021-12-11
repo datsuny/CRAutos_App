@@ -33,7 +33,7 @@
                             @if (Session["VendedorLogeado"] != null)
                             {
                                 <li class="nav-link">@Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link" })</li>
-                                <li class="nav-link">@Html.ActionLink("Publicaciones", "ProcesoConsulta", "Publicaciones", null, new { @class = "nav-link" })</li>
+                                <li class="nav-link">@Html.ActionLink("Publicaciones", "PublicacionesVehiculos", "Publicaciones", null, new { @class = "nav-link" })</li>
                                 <li class="nav-link">@Html.ActionLink("Ver autos en venta", "VerCarros", "VerCarros", null, new { @class = "nav-link" })</li>
                             }
                             else
