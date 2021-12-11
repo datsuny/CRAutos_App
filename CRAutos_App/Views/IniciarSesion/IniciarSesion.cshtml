@@ -51,7 +51,7 @@
                     @Html.PasswordFor(Model => Model.Contrasenna, new { placeholder = "Contraseña", @class = "form-control" })
 
                     <div>
-                        @Html.ActionLink("Olvidaste tu contraseña?", "Recuperar", "RecuperarContrasenna")
+                        @Html.ActionLink("Olvidaste tu contraseña?", "Recuperar", "RecuperarContra", null, new { @style = "color:red" })
                     </div>
 
                     <div class="submit-button text-lg-right">
@@ -106,3 +106,4 @@
     });
 </script>
 
+<script src="~/js/bootstrap.min.js"></script>
