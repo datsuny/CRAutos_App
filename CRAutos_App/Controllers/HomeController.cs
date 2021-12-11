@@ -11,6 +11,8 @@ namespace CRAutos_App.Controllers
     {
         public ActionResult Index()
         {
+           
+           
 
             return View();
         }

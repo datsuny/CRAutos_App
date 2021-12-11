@@ -26,5 +26,30 @@ namespace CRAutos_App.Controllers
                 return View(publicacion);
             }
         }
+        [HttpGet]
+        public ActionResult mostrarDetalles(CRAutos_App.Models.TBPublicaciones id)
+        {
+            
+            modeloPublicaciones mPublicaciones = new modeloPublicaciones();
+            var respuesta = mPublicaciones.mostrarTodaPublicacion();
+
+            List<SelectListItem> combo = new List<SelectListItem>();
+
+            foreach(var item in respuesta)
+            {
+                combo.Add(new SelectListItem
+                {
+                    Value = item.IDPublicacion.ToString(),
+                    Text = item.Descripcion
+                });
+            }
+
+            ViewBag.Data = combo;
+
+            var publicacionFiltrada = respuesta.Where(x => x.IDPublicacion == id.IDPublicacion).ToList();
+            
+            return View("mostrarDetalles", publicacionFiltrada);
+        }
+
     }
 }

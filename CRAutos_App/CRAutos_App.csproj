@@ -154,6 +154,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VerCarrosController.cs" />
     <Compile Include="ETL\DatosVehiculo.cs" />
+    <Compile Include="ETL\DetallesPublicacion.cs" />
     <Compile Include="ETL\Publicacion.cs" />
     <Compile Include="ETL\TipoVendedor.cs" />
     <Compile Include="Global.asax.cs">
@@ -178,6 +179,9 @@
     <Compile Include="Models\BuscarUsuario.cs" />
     <Compile Include="Models\ConsultaVehiculo.cs" />
     <Compile Include="Models\modeloPublicaciones.cs" />
+    <Compile Include="Models\mostrarPublicacion_Result.cs">
+      <DependentUpon>CrAutosDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\RegistrarVendedor.cs" />
     <Compile Include="ETL\Vendedor.cs" />
     <Compile Include="Models\TBCondicionVehiculo.cs">
@@ -312,6 +316,7 @@
     <Content Include="Views\Publicaciones\ProcesoConsulta.cshtml" />
     <Content Include="Views\Publicaciones\ProcesoVehiculo.cshtml" />
     <Content Include="Views\VerCarros\modal_ver_detalles.cshtml" />
+    <Content Include="Views\VerCarros\mostrarDetalles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

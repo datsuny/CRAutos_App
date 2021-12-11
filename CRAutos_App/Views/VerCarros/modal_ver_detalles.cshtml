@@ -1,32 +1,10 @@
-﻿<div id="modal_detalle_publicacion" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Detalles del vehículo</h4>
-            </div>
-            <div class="modal-body">
-                <table class="table table-bordered">
-                    <thead style="background-color: darkgray; color:white">
-                        <tr>
-                            <td hidden>id</td>
-                            <td>Vendedor</td>
-                            <td>Numero de telefono</td>
-                            <td>Correo</td>
-                            <td></td>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove">Cerrar</span></button>
-            </div>
-        </div>
-    </div>
-</div>
+﻿@model CRAutos_App.Models.TBPublicaciones
 
+@using (Html.BeginForm("mostrarDetalles", "VerCarros", FormMethod.Post))
+            {
+                @Html.DropDownListFor(m => m.IDPublicacion, ViewBag.Data as List<SelectListItem>, new { @class = "form-control" })
 
-<script>
-    enviarIdPublicacion = function (id) {
-        console.log("fs")
-    }
-</script>
+                <br />
+
+                <input type="submit" value="Buscar vehículo" class="form-control"/>
+            }

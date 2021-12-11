@@ -1,0 +1,52 @@
+﻿@model IEnumerable<CRAutos_App.Models.TBPublicaciones>
+@{
+    ViewBag.Title = "mostrarDetalles";
+}
+
+<h2>mostrarDetalles</h2>
+
+<div class="w3-services py-5">
+    <div class="container py-lg-4">
+        <div class="title-content text-left mb-lg-5 mb-4">
+            <h6 class="sub-title">Vehículos en venta</h6>
+        </div>
+        <div class="row w3-services-grids">
+
+            <!--Card-->
+            <br />
+            <div class="col-lg-4 col-md-6 causes-grid">
+                <div class="causes-grid-info">
+
+                    @foreach (var item in Model)
+                    {
+                            <input type="number" value="@item.IDPublicacion" hidden />
+                            <img src="@Html.DisplayFor(modelItem=>item.Imagen)" class="img-fuild" alt="">
+                            <a href="#" class="cause-title-wrap">
+                                <h4 class="cause-title" id="titulo_publicacion">@item.TituloPublicacion</h4>
+                            </a>
+                            <p class="card-text mb-0" id="Descripcion_Publicacion">
+                                @item.Descripcion
+                            </p>
+                            <br />
+                            <h3>Precio del vehiculo</h3>
+                            <h3 class="cause-title" id="Precio_Publicacion">₡@item.Precio</h3>
+                            <br />
+
+                            <div class="submit-button text-lg-center">
+
+                            </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+
+
+        <!--/Card-->
+        <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
+        </div>
+    </div>
+</div>
+
+    
+
