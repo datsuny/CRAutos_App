@@ -19,45 +19,45 @@ namespace CRAutos_App.Models
             }
         }
 
-        public List<DetallesPublicacion> mostrarDetalles(int IDPublicacion)
-        {
-            List<DetallesPublicacion> modelo =new List<DetallesPublicacion>();
-            using (var contexto = new CrAutosDBEntities())
-            {
+        //public List<DetallesPublicacion> mostrarDetalles(int IDPublicacion)
+        //{
+        //    List<DetallesPublicacion> modelo =new List<DetallesPublicacion>();
+        //    using (var contexto = new CrAutosDBEntities())
+        //    {
                 
-                var respuesta = contexto.mostrarPublicacion(IDPublicacion).ToList();
+        //        //var respuesta = contexto.mostrarPublicacion(IDPublicacion).ToList();
 
-                foreach (var item in respuesta)
-                {
-                    modelo.Add(new DetallesPublicacion
-                    {
-                        TituloPublicacion = item.TituloPublicacion,
-                        //Imagen = item.imagen,
-                        Fecha = item.Fecha,
-                        Precio = item.Precio,
-                        Descripcion = item.Descripcion,
-                        Ubicacion = item.Ubicacion,
-                        Matricula = item.Matricula,
-                        Kilometraje = item.Kilometraje,
-                        Cilindraje = item.Cilindraje,
-                        Transmision = item.Transmision,
-                        Color = item.Color,
-                        NumeroPuertas = item.NumeroPuertas,
-                        Año = item.Año,
-                        Combustible = item.Combustible,
-                        Nombre = item.Nombre,
-                        Apellido1 = item.Apellido1,
-                        Apellido2 = item.Apellido2,
-                        Telefono = item.Telefono,
-                        Correo = item.Correo
-                    });
+        //        foreach (var item in respuesta)
+        //        {
+        //            modelo.Add(new DetallesPublicacion
+        //            {
+        //                TituloPublicacion = item.TituloPublicacion,
+        //                //Imagen = item.imagen,
+        //                Fecha = item.Fecha,
+        //                Precio = item.Precio,
+        //                Descripcion = item.Descripcion,
+        //                Ubicacion = item.Ubicacion,
+        //                Matricula = item.Matricula,
+        //                Kilometraje = item.Kilometraje,
+        //                Cilindraje = item.Cilindraje,
+        //                Transmision = item.Transmision,
+        //                Color = item.Color,
+        //                NumeroPuertas = item.NumeroPuertas,
+        //                Año = item.Año,
+        //                Combustible = item.Combustible,
+        //                Nombre = item.Nombre,
+        //                Apellido1 = item.Apellido1,
+        //                Apellido2 = item.Apellido2,
+        //                Telefono = item.Telefono,
+        //                Correo = item.Correo
+        //            });
                    
-                }
+        //        }
 
  
-            }
-            return modelo;
-        }
+        //    }
+        //    return modelo;
+        //}
 
         public List<TBPublicaciones> mostrarTodaPublicacion()
         {

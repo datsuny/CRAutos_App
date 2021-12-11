@@ -1,4 +1,5 @@
 ﻿using CRAutos_App.ETL;
+using CRAutos_App.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace CRAutos_App.Controllers
         public ActionResult Recuperar()
         {
             RecuperarContrasenna recuperar = new RecuperarContrasenna();
+
             return View(recuperar);
         }
 

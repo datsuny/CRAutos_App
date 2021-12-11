@@ -81,7 +81,7 @@ namespace CRAutos_App.Models
         {
             string EmailOrigen = "proyectoProgra123456@gmail.com";
             string Contraseña = "proyectoprogra";
-            string url = urlDomain + "RecuperarContrasenna/CambiarContrasenna/?token=" + token;
+            string url = urlDomain + "RecuperarContra/CambiarContrasenna/?token=" + token;
             MailMessage oMailMessage = new MailMessage(EmailOrigen, EmailDestino, "Recuperación de contraseña",
                 "<p>Correo para recuperación de contraseña</p><br>" +
                 "<a href='" + url + "'>Click para recuperar</a>");

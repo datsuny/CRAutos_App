@@ -50,7 +50,9 @@
                     @Html.TextBoxFor(Model => Model.NombreUsuario, new { placeholder = "Nombre de usuario", @class = "form-control" })
                     @Html.PasswordFor(Model => Model.Contrasenna, new { placeholder = "Contraseña", @class = "form-control" })
 
-                    
+                    <div>
+                        @Html.ActionLink("Olvidaste tu contraseña?", "Recuperar", "RecuperarContrasenna")
+                    </div>
 
                     <div class="submit-button text-lg-right">
                         <button type="submit" class="btn btn-style">Ingresar</button>

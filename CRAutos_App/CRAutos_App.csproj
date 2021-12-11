@@ -318,11 +318,13 @@
     <Content Include="Views\Publicaciones\ProcesoVehiculo.cshtml" />
     <Content Include="Views\VerCarros\modal_ver_detalles.cshtml" />
     <Content Include="Views\VerCarros\mostrarDetalles.cshtml" />
+    <Content Include="Views\RecuperarContra\CambiarContrasenna.cshtml" />
+    <Content Include="Views\RecuperarContra\ErrorTokenInvalido.cshtml" />
+    <Content Include="Views\RecuperarContra\Recuperar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Imagen\" />
-    <Folder Include="Views\RecuperarContra\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css.map" />

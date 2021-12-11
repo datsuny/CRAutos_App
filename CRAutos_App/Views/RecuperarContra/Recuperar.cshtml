@@ -23,7 +23,7 @@
                     <div class="title-content text-center">
                         <h3 class="hny-title mb-lg-5 mb-4"></h3>
                     </div>
-                    @using (Html.BeginForm("Recuperar", "RecuperarContrasenna", FormMethod.Post))
+                    @using (Html.BeginForm("Recuperar", "RecuperarContra", FormMethod.Post))
                     {
                         <label>Escribe tu correo electrónico</label>
                         @Html.TextBoxFor(Model => Model.Email, null, new { @class = "form-control" })
