@@ -10,7 +10,6 @@ namespace CRAutos_App.Models
 {
     public class RecuperarContrasennaModel
     {
-
         public string Recuperar(ETL.RecuperarContrasenna recuperar)
         {
             var respuesta = "";
@@ -19,7 +18,7 @@ namespace CRAutos_App.Models
             using (CrAutosDBEntities contexto = new Models.CrAutosDBEntities())
             {
                 var Vendedor = contexto.TBVendedor.Where(d => d.Correo == recuperar.Email).FirstOrDefault();
-                if(Vendedor != null)
+                if (Vendedor != null)
                 {
                     var VendedorSeleccionado = (from x in contexto.TBUsuario
                                                 where x.IDVendedor == Vendedor.IDVendedor
@@ -64,7 +63,7 @@ namespace CRAutos_App.Models
             }
         }
 
-       
+
 
         private string GetSha256(string str)
         {
@@ -82,7 +81,7 @@ namespace CRAutos_App.Models
         {
             string EmailOrigen = "proyectoProgra123456@gmail.com";
             string Contraseña = "proyectoprogra";
-            string url = urlDomain+"RecuperarContrasenna/CambiarContrasenna/?token=" + token;
+            string url = urlDomain + "RecuperarContrasenna/CambiarContrasenna/?token=" + token;
             MailMessage oMailMessage = new MailMessage(EmailOrigen, EmailDestino, "Recuperación de contraseña",
                 "<p>Correo para recuperación de contraseña</p><br>" +
                 "<a href='" + url + "'>Click para recuperar</a>");

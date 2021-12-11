@@ -150,12 +150,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\IniciarSesionController.cs" />
     <Compile Include="Controllers\PublicacionesController.cs" />
+    <Compile Include="Controllers\RecuperarContraController.cs" />
     <Compile Include="Controllers\RegistrarseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VerCarrosController.cs" />
+    <Compile Include="ETL\CambiarContrasenna.cs" />
     <Compile Include="ETL\DatosVehiculo.cs" />
     <Compile Include="ETL\DetallesPublicacion.cs" />
     <Compile Include="ETL\Publicacion.cs" />
+    <Compile Include="ETL\RecuperarContrasenna.cs" />
     <Compile Include="ETL\TipoVendedor.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -179,9 +182,7 @@
     <Compile Include="Models\BuscarUsuario.cs" />
     <Compile Include="Models\ConsultaVehiculo.cs" />
     <Compile Include="Models\modeloPublicaciones.cs" />
-    <Compile Include="Models\mostrarPublicacion_Result.cs">
-      <DependentUpon>CrAutosDB.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\RecuperarContrasennaModel.cs" />
     <Compile Include="Models\RegistrarVendedor.cs" />
     <Compile Include="ETL\Vendedor.cs" />
     <Compile Include="Models\TBCondicionVehiculo.cs">
@@ -321,6 +322,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Imagen\" />
+    <Folder Include="Views\RecuperarContra\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css.map" />
