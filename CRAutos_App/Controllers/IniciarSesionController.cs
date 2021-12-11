@@ -38,9 +38,9 @@ namespace CRAutos_App.Controllers
                 return RedirectToAction("Index", "Home"); //Ejemplo debe retornar a la pantalla de publicaciones
 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                return null;
+                return View("~/Views/Shared/ErrorPagina.cshtml");
             }
 
         }

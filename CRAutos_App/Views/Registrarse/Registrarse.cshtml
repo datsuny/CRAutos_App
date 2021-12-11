@@ -44,31 +44,43 @@
                     <form action="@Url.Content("~/Registrarse/Registrarse")" method="post" class="signin-form">
                         <div class="row con-two">
 
-                            @Html.TextBoxFor(Model => Model.Nombre, new { placeholder = "Nombre", @class = "col-lg-6 form-input"})
+                            <div class="col-lg-6 form-input">
+                                @Html.TextBoxFor(Model => Model.Nombre, new { placeholder = "Nombre" })
+                            </div>
 
-                            @Html.TextBoxFor(Model => Model.Apellido1, new { placeholder = "Primer apellido", @class = "col-lg-6 form-input" })
+                            <div class="col-lg-6 form-input">
+                                @Html.TextBoxFor(Model => Model.Apellido1, new { placeholder = "Primer apellido" })
+                            </div>
 
-                            @Html.TextBoxFor(Model => Model.Apellido2, new { placeholder = "Segundo apellido", @class = "col-lg-6 form-input" })
+                            <div class="col-lg-6 form-input">
+                                @Html.TextBoxFor(Model => Model.Apellido2, new { placeholder = "Segundo apellido" })
+                            </div>
 
-                            @Html.TextBoxFor(Model => Model.Telefono, new { placeholder = "Telefono", @class = "col-lg-6 form-input" })
+                            <div class="col-lg-6 form-input">
+                                @Html.TextBoxFor(Model => Model.Telefono, new { placeholder = "Telefono" })
+                            </div>
 
-                            @Html.TextBoxFor(Model => Model.Empresa, new { placeholder = "Empresa", @class = "col-lg-6 form-input" })
+                            <div class="col-lg-6 form-input">
+                                @Html.TextBoxFor(Model => Model.Empresa, new { placeholder = "Empresa"})
+                            </div>
 
-                            @Html.TextBoxFor(Model => Model.Correo, new { placeholder = "Correo electronico", @class = "form-control" })
+                           <div class="col-lg-6 form-input">
+                                    @Html.TextBoxFor(Model => Model.Correo, new { placeholder = "Correo electronico"})
+                            </div>
 
                         </div>
 
-                        <h6 class="mb-4"> Datos para ingresar a su cuenta.</h6>
+                            <h6 class="mb-4"> Datos para ingresar a su cuenta.</h6>
 
-                        <div class="form-input">
-                            @Html.TextBoxFor(Model => Model.NombreUsuario, new { placeholder = "Nombre de usuario", @class = "form-control" })
-                            @Html.PasswordFor(Model => Model.Contrasenna, new { placeholder = "Contraseña", @class = "form-control" })
-                        </div>
+                            <div class="form-input">
+                                @Html.TextBoxFor(Model => Model.NombreUsuario, new { placeholder = "Nombre de usuario", @class = "form-control" })
+                                @Html.PasswordFor(Model => Model.Contrasenna, new { placeholder = "Contraseña", @class = "form-control" })
+                            </div>
 
-                        <div class="submit-button text-lg-right">
-                            <button type="submit" class="btn btn-style">Crear cuenta</button>
-                        </div>
-                    </form>
+                            <div class="submit-button text-lg-right">
+                                <button type="submit" class="btn btn-style">Crear cuenta</button>
+                            </div>
+                   </form>
                 </div>
             </div>
         </div>

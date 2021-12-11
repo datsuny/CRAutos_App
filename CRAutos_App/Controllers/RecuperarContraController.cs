@@ -46,29 +46,35 @@ namespace CRAutos_App.Controllers
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                return View("~/Views/Shared/ErrorPagina.cshtml");
             }
         }
 
         [HttpGet]
         public ActionResult CambiarContrasenna(string token)
         {
-            CambiarContrasenna model = new CambiarContrasenna();
-            model.token = token;
-            using (CrAutosDBEntities contexto = new CrAutosDBEntities())
+            try
             {
-                if (model.token == null || model.token.Trim().Equals(""))
+                CambiarContrasenna model = new CambiarContrasenna();
+                model.token = token;
+                using (CrAutosDBEntities contexto = new CrAutosDBEntities())
                 {
-                    return View("ErrorTokenInvalido");
-                }
-                var oUser = contexto.TBUsuario.Where(d => d.TokenRecovery == model.token).FirstOrDefault();
-                if (oUser == null)
-                {
-                    return View("ErrorTokenInvalido");
+                    if (model.token == null || model.token.Trim().Equals(""))
+                    {
+                        return View("ErrorTokenInvalido");
+                    }
+                    var oUser = contexto.TBUsuario.Where(d => d.TokenRecovery == model.token).FirstOrDefault();
+                    if (oUser == null)
+                    {
+                        return View("ErrorTokenInvalido");
 
+                    }
                 }
+                return View(model);
+            }catch (Exception)
+            {
+                return View("~/Views/Shared/ErrorPagina.cshtml");
             }
-            return View(model);
         }
 
         public ActionResult CambiarContrasenna(ETL.CambiarContrasenna cambio)
@@ -88,7 +94,7 @@ namespace CRAutos_App.Controllers
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                return View("~/Views/Shared/ErrorPagina.cshtml");
             }
 
             ViewBag.Message = "Contraseña modificada con éxito";

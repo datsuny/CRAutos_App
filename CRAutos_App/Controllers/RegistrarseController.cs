@@ -33,13 +33,9 @@ namespace CRAutos_App.Controllers
             }
             catch (Exception ex)
             {
-                return null;
+                return View("~/Views/Shared/ErrorPagina.cshtml");
             }
 
         }
-
-      
-
-        
     }
 }
