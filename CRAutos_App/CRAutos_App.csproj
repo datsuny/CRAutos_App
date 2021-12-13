@@ -160,6 +160,7 @@
     <Compile Include="ETL\datosPublicacion.cs" />
     <Compile Include="ETL\DatosVehiculo.cs" />
     <Compile Include="ETL\DetallesPublicacion.cs" />
+    <Compile Include="ETL\DetallesVehiculo.cs" />
     <Compile Include="ETL\Filtrar.cs" />
     <Compile Include="ETL\Publicacion.cs" />
     <Compile Include="ETL\RecuperarContrasenna.cs" />
@@ -189,6 +190,9 @@
     <Compile Include="Models\BuscarUsuario.cs" />
     <Compile Include="Models\ConsultaVehiculo.cs" />
     <Compile Include="Models\modeloPublicaciones.cs" />
+    <Compile Include="Models\mostrarPublicacion_Result.cs">
+      <DependentUpon>CrAutosDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\RecuperarContrasennaModel.cs" />
     <Compile Include="Models\RegistrarVendedor.cs" />
     <Compile Include="ETL\Vendedor.cs" />

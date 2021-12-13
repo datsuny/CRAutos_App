@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CRAutos_App.Models.TBPublicaciones>
+﻿@model IEnumerable<CRAutos_App.ETL.DetallesVehiculo>
 
 @{
     ViewBag.Title = "VerCarros";
@@ -32,7 +32,7 @@
                 <div class="col-lg-4 col-md-6 causes-grid">
                     <div class="causes-grid-info">
                         <form action="~/VerCarros/mostrarDetalles" method="get">
-                            <input type="number" value="@item.IDPublicacion" hidden />
+
                             <img src="@Html.DisplayFor(modelItem=>item.Imagen)" class="img-fuild" alt="">
                             <a href="#" class="cause-title-wrap">
                                 <h4 class="cause-title" id="titulo_publicacion">@item.TituloPublicacion</h4>
@@ -46,15 +46,40 @@
                             <p class="card-text mb-0" id="Ubicacion_Publicacion">
                                 Se ubica en: @item.Ubicacion
                             </p>
-                            <p class="card-text mb-0" id="Ubicacion_Publicacion">
-                                Se ubica en: @item.IDVendedor
+                            <p class="card-text mb-0" id="Kilometraje">
+                                Kilometraje: @item.Kilometraje
+                            </p>
+                            <p class="card-text mb-0" id="Cilindraje">
+                                Cilindraje: @item.Cilindraje
+                            </p>
+                            <p class="card-text mb-0" id="Transmision">
+                                Transmision: @item.Transmision
+                            </p>
+                            <p class="card-text mb-0" id="Color">
+                                Color: @item.Color
+                            </p>
+                            <p class="card-text mb-0" id="NumeroPuertas">
+                                Número de puertas: @item.NumeroPuertas
+                            </p>
+                            <p class="card-text mb-0" id="Año">
+                                Año: @item.Año
+                            </p>
+                            <p class="card-text mb-0" id="Combustible">
+                                Combustible: @item.Combustible
+                            </p>
+                            <p class="card-text mb-0" id="Vendedor">
+                                Propietario: @item.Nombre  @item.Apellido1 @item.Apellido2
+                            </p>
+                            <p class="card-text mb-0" id="Telefono">
+                                Teléfono: @item.Telefono
+                            </p>
+                            <p class="card-text mb-0" id="Correo">
+                                Correo: @item.Correo
                             </p>
                             <br />
                             <h3>Precio del vehiculo</h3>
                             <h3 class="cause-title" id="Precio_Publicacion">₡@item.Precio</h3>
                             <br />
-
-
                         </form>
                     </div>
                 </div>

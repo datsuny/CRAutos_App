@@ -17,8 +17,8 @@ namespace CRAutos_App.Models
         public long IDUsuario { get; set; }
         public string NombreUsuario { get; set; }
         public string Contrasenna { get; set; }
-        public long IDVendedor { get; set; }
         public string TokenRecovery { get; set; }
+        public long IDVendedor { get; set; }
     
         public virtual TBVendedor TBVendedor { get; set; }
     }

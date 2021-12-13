@@ -12,6 +12,8 @@ namespace CRAutos_App.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class CrAutosDBEntities : DbContext
     {
@@ -37,5 +39,10 @@ namespace CRAutos_App.Models
         public virtual DbSet<TBUsuario> TBUsuario { get; set; }
         public virtual DbSet<TBVehiculo> TBVehiculo { get; set; }
         public virtual DbSet<TBVendedor> TBVendedor { get; set; }
+    
+        public virtual ObjectResult<mostrarPublicacion_Result> mostrarPublicacion()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<mostrarPublicacion_Result>("mostrarPublicacion");
+        }
     }
 }
