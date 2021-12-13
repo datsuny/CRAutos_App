@@ -24,18 +24,26 @@ namespace CRAutos_App.Controllers
             try
             {
                 var resultado = registrarVendedor.RegistrarDatos(vendedor);
-                if(resultado == "error")
+                if (resultado == "error")
                 {
                     ViewBag.Error = "error no se puede registrar";
                     return View();
                 }
-                return RedirectToAction("Index", "Home");
+                else
+                {
+                    return RedirectToAction("RegistroExitoso");
+                }
             }
             catch (Exception ex)
             {
                 return View("~/Views/Shared/ErrorPagina.cshtml");
             }
 
+        }
+
+        public ActionResult RegistroExitoso()
+        {
+            return View();
         }
     }
 }

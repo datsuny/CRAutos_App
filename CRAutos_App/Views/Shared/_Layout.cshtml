@@ -29,18 +29,19 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav nav-link">
 
-                      
-                            @if (Session["VendedorLogeado"] != null)
-                            {
-                                <li class="nav-link">@Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link" })</li>
-                                <li class="nav-link">@Html.ActionLink("Publicaciones", "PublicacionesVehiculos", "Publicaciones", null, new { @class = "nav-link" })</li>
-                                <li class="nav-link">@Html.ActionLink("Ver autos en venta", "VerCarros", "VerCarros", null, new { @class = "nav-link" })</li>
-                            }
-                            else
-                            {
-                                <li>@Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link" })</li>
-                                <li>@Html.ActionLink("Ver autos en venta", "VerCarros", "VerCarros", null, new { @class = "nav-link" })</li>
-                            }
+
+                        @if (Session["VendedorLogeado"] != null)
+                        {
+                            <li class="nav-link">@Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link" })</li>
+                            <li class="nav-link">@Html.ActionLink("Publicaciones", "PublicacionesVehiculos", "Publicaciones", null, new { @class = "nav-link" })</li>
+                            <li class="nav-link">@Html.ActionLink("Ver autos en venta", "VerCarros", "VerCarros", null, new { @class = "nav-link" })</li>
+                            <li class="nav-link">@Html.ActionLink("Editar Perfil", "EditarPerfil", "EditarPerfil", null, new { @class = "nav-link" })</li>
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Ver autos en venta", "VerCarros", "VerCarros", null, new { @class = "nav-link" })</li>
+                        }
                     </ul>
                     <ul class="navbar-nav search-right mt-lg-0 mt-2">
                         <li class="nav-item mr-3" title="Search">

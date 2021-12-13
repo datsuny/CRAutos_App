@@ -148,6 +148,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\EditarPerfilController.cs" />
     <Compile Include="Controllers\IniciarSesionController.cs" />
     <Compile Include="Controllers\PublicacionesController.cs" />
     <Compile Include="Controllers\RecuperarContraController.cs" />
@@ -181,6 +182,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CrAutosDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\EditarPerfilModel.cs" />
     <Compile Include="Models\ListasdedatosPublicacion.cs" />
     <Compile Include="Models\BuscarUsuario.cs" />
     <Compile Include="Models\ConsultaVehiculo.cs" />
@@ -329,6 +331,8 @@
     <Content Include="Views\Publicaciones\RegistroPublicacion.cshtml" />
     <Content Include="Views\Publicaciones\RegistroVehiculo.cshtml" />
     <Content Include="Views\Shared\ErrorPagina.cshtml" />
+    <Content Include="Views\EditarPerfil\EditarPerfil.cshtml" />
+    <Content Include="Views\Registrarse\RegistroExitoso.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -49,7 +49,7 @@
                 <div class="form-input">
                     @Html.TextBoxFor(Model => Model.NombreUsuario, new { placeholder = "Nombre de usuario", @class = "form-control" })
                     @Html.PasswordFor(Model => Model.Contrasenna, new { placeholder = "Contraseña", @class = "form-control" })
-
+                    <p class="sub-title">@ViewBag.Error</p>
                     <div>
                         @Html.ActionLink("Olvidaste tu contraseña?", "Recuperar", "RecuperarContra", null, new { @style = "color:red" })
                     </div>

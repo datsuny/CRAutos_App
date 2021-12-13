@@ -1,0 +1,124 @@
+﻿@model IEnumerable<CRAutos_App.Models.TBVendedor>
+@{
+    ViewBag.Title = "EditarPerfil";
+}
+
+<section class="w3l-about-breadcrumb position-relative text-center">
+    <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
+        <div class="container py-lg-5 py-3">
+            <h2 class="title">Editar Perfil</h2>
+            <ul class="breadcrumbs-custom-path mt-2">
+                <li><a href="#url">Inicio</a></li>
+                <li class="active"><span class="fa fa-angle-double-right mx-2" aria-hidden="true"></span> Editar Perfil </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- //about breadcrumb -->
+<section class="w3l-contact-11">
+    <div class="form-41-mian py-5">
+        <div class="container py-lg-4">
+            <div class="row align-form-map">
+                <div class="col-lg-6 contact-left pr-lg-4">
+                    <div class="partners">
+                        <div class="cont-details">
+                            <div class="title-content text-left">
+                                <h6 class="sub-title">Actualice sus datos personales</h6>
+                                <h3 class="hny-title">Tengo sus datos al día.</h3>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 form-inner-cont">
+                    <div class="title-content text-left">
+                        <h3 class="hny-title mb-lg-5 mb-4"></h3>
+                    </div>
+                    <h6 class="mb-4"> Información personal.</h6>
+                    <form action="@Url.Content("~/EditarPerfil/ActualizarPerfil")" method="post" class="signin-form">
+
+                        @foreach (var item in Model)
+                        {
+                        <div class="row con-two">
+                           
+                            <div class="col-lg-6 form-input">
+                                @Html.Label("Nombre Completo")
+                                @Html.TextBox("Nombre", @item.Nombre, new { placeholder = "Nombre" })
+                            </div>
+
+                            <div class="col-lg-6 form-input">
+                                @Html.Label("Primer Apellido")
+                                @Html.TextBox("Apellido1", @item.Apellido1, new { placeholder = "Primer apellido" })
+                            </div>
+
+                            <div class="col-lg-6 form-input">
+                                @Html.Label("Segundo Apellido")
+                                @Html.TextBox("Apellido2", @item.Apellido2, new { placeholder = "Segundo apellido" })
+                            </div>
+
+                            <div class="col-lg-6 form-input">
+                                @Html.Label("Teléfono")
+                                @Html.TextBox("Telefono", @item.Telefono, new { placeholder = "Telefono" })
+                            </div>
+
+                            <div class="col-lg-12 form-input">
+                                @Html.Label("Correo electronico")
+                                @Html.TextBox("Correo", @item.Correo, new { placeholder = "Correo" })
+                            </div>
+                        </div>
+                        }
+                        <p style="color:red">@ViewBag.Actualizado</p>
+                        <div class="submit-button text-lg-right">
+                            <button type="submit" class="btn btn-style">Editar Datos</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- //contact-form -->
+<!-- Template JavaScript -->
+<script src="~/js/jquery-3.3.1.min.js"></script>
+<script src="~/js/theme-change.js"></script>
+<!-- disable body scroll which navbar is in active -->
+<script>
+    $(function () {
+        $('.navbar-toggler').click(function () {
+            $('body').toggleClass('noscroll');
+        })
+    });
+</script>
+<!-- disable body scroll which navbar is in active -->
+<!--/MENU-JS-->
+<script>
+    $(window).on("scroll", function () {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function () {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function () {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function () {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+</script>
+
+<script src="~/js/bootstrap.min.js"></script>
+
+
