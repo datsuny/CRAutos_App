@@ -54,6 +54,7 @@ namespace CRAutos_App.Models
                             Descripcion = item.Descripcion,
                             Precio = item.Precio,
                             Ubicacion = item.Ubicacion,
+                            Fecha = item.Fecha,
                             Estatus = consultaStatus(item.IDEstatus),
                             CondicionVehiculo = consultaCondicion(item.IDCondicion),
                             Imagen = item.Imagen
