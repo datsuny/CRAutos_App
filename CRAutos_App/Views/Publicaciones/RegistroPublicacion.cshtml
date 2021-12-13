@@ -34,28 +34,33 @@
                     {
                         <h6 class="mb-4"> Datos para el registro de la publicación.</h6>
                         <div class="row con-two">
-                            @Html.TextBoxFor(Model => Model.TituloPublicacion, new { placeholder = "Titulo de la publicación", @class = "col-lg-6 form-input" })
+                            <div class="col-lg-6 form-input">
+                                @Html.Label("Titulo de la publicacion:")
+                                @Html.TextBoxFor(Model => Model.TituloPublicacion)
 
-                            @Html.TextBoxFor(model => Model.Descripcion, new { placeholder = "Descripción", @class = "col-lg-6 form-input" })
-
-                            @Html.TextBoxFor(Model => Model.Ubicacion, new { placeholder = "Ubicación de donde se encuetra el vehículo" })
-
-                            @Html.Label("Precio del vehículo", new { @class = "col-lg-6 form-input" })
-                            @Html.TextBoxFor(Model => Model.Precio)
-
-                            @Html.Label("Ingrese la foto de portada de la publicación", new { @class = "col-lg-6 form-input" })
+                            </div>
+                            <div class="col-lg-6 form-input">
+                                @Html.Label("Descripcion de la publicacion:")
+                                @Html.TextBoxFor(model => Model.Descripcion)
+                            </div>
+                            <div class="col-lg-6 form-input">
+                                @Html.Label("Ubicacion del vehiculo:")
+                                @Html.TextBoxFor(Model => Model.Ubicacion)
+                            </div>
+                            <div class="col-lg-6 form-input">
+                                @Html.Label("Precio del vehiculo:")
+                                @Html.TextBoxFor(Model => Model.Precio)
+                            </div>
+                            <div class="col-lg-6 form-input">
+                                @Html.Label("Condición del vehículo:")
+                                @Html.DropDownListFor(Model => Model.IDCondicion, Model.listaCondicion, htmlAttributes: new { @class = "form-control" })
+                            </div>
+                            <div class="col-lg-6 form-input">
+                                @Html.Label("Estado de la publicación:")
+                                @Html.DropDownListFor(Model => Model.IDEstatus, Model.listaEstatus, htmlAttributes: new { @class = "form-control" })
+                            </div>
+                            @Html.Label("Ingrese la foto de portada de la publicación")
                             <input type="file" name="ImagePortada" />
-
-                            @Html.Label("Condición del vehículo", new { @class = "col-lg-6 form-input" })
-
-                            @Html.DropDownListFor(Model => Model.IDCondicion, Model.listaCondicion, htmlAttributes: new { @class = "form-control" })
-                            <br />
-                            <br />
-                            @Html.Label("Estado de la publicación", new { @class = "col-lg-6 form-input" })
-
-                            @Html.DropDownListFor(Model => Model.IDEstatus, Model.listaEstatus, htmlAttributes: new { @class = "form-control" })
-                            <br />
-                            <br />
                             <br />
                             <div class="submit-button text-lg-right">
                                 <button type="submit" class="btn btn-style">Registrar Publicación de vehículo</button>

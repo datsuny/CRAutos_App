@@ -34,45 +34,57 @@
                     <h6 class="mb-4"> Detalle del vehículo</h6>
                     @using (Html.BeginForm("RegistroDetallesVehiculo", "Publicaciones", FormMethod.Post, new { enctype = "multipart/form-data" }))
                     {
-                <div class="row con-two">
-                    <div class="col-lg-6 form-input">
-                        @Html.Label("Kilometraje:")
-                        @Html.TextBoxFor(Model => Model.Kilometraje)
-                    </div>
-                        @Html.TextBoxFor(Model => Model.Cilindraje, new { placeholder = "Cilindraje", @class = "col-lg-6 form-input" })
+                        <div class="row con-two">
+                            <div class="col-lg-6 form-input">
+                                @Html.Label("Kilometraje del vehiculo:")
+                                @Html.TextBoxFor(Model => Model.Kilometraje)
+                            </div>
+                            <div class="col-lg-6 form-input">
+                                @Html.Label("Cilindraje del vehiculo:")
+                                @Html.TextBoxFor(Model => Model.Cilindraje)
+                            </div>
+                            <div class="col-lg-6 form-input">
+                                @Html.Label("Tipo de transmision:")
+                                @Html.TextBoxFor(Model => Model.Transmision)
+                            </div>
+                            <div class="col-lg-6 form-input">
+                                @Html.Label("Color del vehiculo:")
+                                @Html.TextBoxFor(Model => Model.Color)
+                            </div>
+                            <div class="col-lg-6 form-input">
+                                @Html.Label("Numero de puertas:")
+                                @Html.TextBoxFor(Model => Model.NumeroPuertas)
+                            </div>
+                            <div class="col-lg-6 form-input">
+                                @Html.Label("Año de fabricacion:")
+                                @Html.TextBoxFor(Model => Model.Año)
 
-                        @Html.TextBoxFor(Model => Model.Transmision, new { placeholder = "Transmision", @class = "col-lg-6 form-input" })
-
-                        @Html.TextBoxFor(Model => Model.Color, new { placeholder = "Color del vehículo" })
-
-                        @Html.Label("Numero de puertas:", new { @class = "col-lg-6 form-input" })
-                        @Html.TextBoxFor(Model => Model.NumeroPuertas)
-
-                        @Html.Label("Año de fabricacion:", new { @class = "col-lg-6 form-input" })
-                        @Html.TextBoxFor(Model => Model.Año)
-
-                        @Html.TextBoxFor(Model => Model.Combustible, new { placeholder = "Tipo de combustible" })
-                    </div>
-                    @Html.Label("Extras de un vehículo:", new { @class = "col-lg-6 form-input" })
-                    <div class="col-lg-1 form-check">
-                        <table>
-                            <tr>
-                                <td>
-                                    @for (int i = 0; i < Model.listaExtras.Count; i++)
-                                    {
-                                        @Html.CheckBoxFor(m => Model.listaExtras[i].isCheck)
-                                        @Model.listaExtras[i].NombreExtra
-                                        @Html.HiddenFor(m => Model.listaExtras[i].IDExtra)
-                                        @Html.HiddenFor(m => Model.listaExtras[i].NombreExtra)
-                                        <br />
-                                    }
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="submit-button text-lg-right">
-                        <button type="submit" class="btn btn-style">Registrar Detalles de vehículo</button>
-                    </div>
+                            </div>
+                            <div class="col-lg-6 form-input">
+                                @Html.Label("Tipo de combustible:")
+                                @Html.TextBoxFor(Model => Model.Combustible)
+                            </div>
+                        </div>
+                        @Html.Label("Extras de un vehículo:", new { @class = "col-lg-6 form-input" })
+                        <div class="col-lg-1 form-check">
+                            <table>
+                                <tr>
+                                    <td>
+                                        @for (int i = 0; i < Model.listaExtras.Count; i++)
+                                        {
+                                            @Html.CheckBoxFor(m => Model.listaExtras[i].isCheck)
+                                            @Model.listaExtras[i].NombreExtra
+                                            @Html.HiddenFor(m => Model.listaExtras[i].IDExtra)
+                                            @Html.HiddenFor(m => Model.listaExtras[i].NombreExtra)
+                                            <br />
+                                        }
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="submit-button text-lg-right">
+                            <button type="submit" class="btn btn-style">Registrar Detalles de vehículo</button>
+                        </div>
 
                     }
                 </div>
@@ -122,3 +134,5 @@
         });
     });
 </script>
+
+<script src="~/js/bootstrap.min.js"></script>

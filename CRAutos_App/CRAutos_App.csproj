@@ -325,16 +325,16 @@
     <Content Include="Views\RecuperarContra\CambiarContrasenna.cshtml" />
     <Content Include="Views\RecuperarContra\ErrorTokenInvalido.cshtml" />
     <Content Include="Views\RecuperarContra\Recuperar.cshtml" />
-    <Content Include="Views\Publicaciones\PublicacionesVehiculos.cshtml" />
-    <Content Include="Views\Publicaciones\RegistroDetallesVehiculo.cshtml" />
-    <Content Include="Views\Publicaciones\RegistroPublicacion.cshtml" />
-    <Content Include="Views\Publicaciones\RegistroVehiculo.cshtml" />
     <Content Include="Views\Shared\ErrorPagina.cshtml" />
     <Content Include="Views\EditarPerfil\EditarPerfil.cshtml" />
     <Content Include="Views\Registrarse\RegistroExitoso.cshtml" />
     <Content Include="Views\VerCarros\filtroDetalles.cshtml" />
     <Content Include="Views\VerCarros\mostrarResultadoFiltro.cshtml" />
     <Content Include="Views\VerCarros\VerCarros.cshtml" />
+    <Content Include="Views\Publicaciones\PublicacionesVehiculos.cshtml" />
+    <Content Include="Views\Publicaciones\RegistroDetallesVehiculo.cshtml" />
+    <Content Include="Views\Publicaciones\RegistroPublicacion.cshtml" />
+    <Content Include="Views\Publicaciones\RegistroVehiculo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

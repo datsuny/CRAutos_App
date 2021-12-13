@@ -36,20 +36,22 @@
                     {
                         <div class="row con-two">
 
-                            @Html.TextBoxFor(Model => Model.Matricula, new { placeholder = "Matricula del vehículo" })
-
-                            @Html.Label("Nombre de la marca del vehículo:", new { @class = "col-lg-6 form-input" })
-
-                            @Html.DropDownListFor(Model => Model.IDMarca, ViewBag.listaMarca as List<SelectListItem>, new { @class = "form-control" })
-                            <br />
-                            <br />
-                            <br />
-
-                            @Html.TextBoxFor(Model => Model.TipoModelo, new { placeholder = "Tipo de modelo delvehículo" })
-                            <br />
-                            <br />
-                            @Html.Label("Ingrese la foto del vehículo", new { @class = "col-lg-6 form-input" })
-                            <input type="file" name="ImageFile" />
+                            <div class="col-lg-6 form-input">
+                                @Html.Label("Matricula del vehiculo")
+                                @Html.TextBoxFor(Model => Model.Matricula)
+                            </div>
+                            <div class="col-lg-6 form-input">
+                                @Html.Label("Tipo de modelo del vehiculo")
+                                @Html.TextBoxFor(Model => Model.TipoModelo)
+                            </div>
+                            <div class="col-lg-6 form-input">
+                                @Html.Label("Tipo de marca:")
+                                @Html.DropDownListFor(Model => Model.IDMarca, ViewBag.listaMarca as List<SelectListItem>, new { @class = "form-control" })
+                            </div>
+                            <div class="col-lg-6 form-input">
+                                @Html.Label("Ingrese la foto del vehículo")
+                                <input type="file" name="ImageFile" />
+                            </div>
                         </div>
                         <div class="submit-button text-lg-right">
                             <button type="submit" class="btn btn-style">Registrar vehículo</button>
