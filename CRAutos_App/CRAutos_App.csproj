@@ -160,6 +160,7 @@
     <Compile Include="ETL\datosPublicacion.cs" />
     <Compile Include="ETL\DatosVehiculo.cs" />
     <Compile Include="ETL\DetallesPublicacion.cs" />
+    <Compile Include="ETL\Filtrar.cs" />
     <Compile Include="ETL\Publicacion.cs" />
     <Compile Include="ETL\RecuperarContrasenna.cs" />
     <Compile Include="ETL\TipoVendedor.cs" />
@@ -183,6 +184,7 @@
       <DependentUpon>CrAutosDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\EditarPerfilModel.cs" />
+    <Compile Include="Models\FiltroVehiculos.cs" />
     <Compile Include="Models\ListasdedatosPublicacion.cs" />
     <Compile Include="Models\BuscarUsuario.cs" />
     <Compile Include="Models\ConsultaVehiculo.cs" />
@@ -320,9 +322,6 @@
     <Content Include="Views\Home\Services.cshtml" />
     <Content Include="Views\Registrarse\Registrarse.cshtml" />
     <Content Include="Views\IniciarSesion\IniciarSesion.cshtml" />
-    <Content Include="Views\VerCarros\VerCarros.cshtml" />
-    <Content Include="Views\VerCarros\modal_ver_detalles.cshtml" />
-    <Content Include="Views\VerCarros\mostrarDetalles.cshtml" />
     <Content Include="Views\RecuperarContra\CambiarContrasenna.cshtml" />
     <Content Include="Views\RecuperarContra\ErrorTokenInvalido.cshtml" />
     <Content Include="Views\RecuperarContra\Recuperar.cshtml" />
@@ -333,6 +332,9 @@
     <Content Include="Views\Shared\ErrorPagina.cshtml" />
     <Content Include="Views\EditarPerfil\EditarPerfil.cshtml" />
     <Content Include="Views\Registrarse\RegistroExitoso.cshtml" />
+    <Content Include="Views\VerCarros\filtroDetalles.cshtml" />
+    <Content Include="Views\VerCarros\mostrarResultadoFiltro.cshtml" />
+    <Content Include="Views\VerCarros\VerCarros.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

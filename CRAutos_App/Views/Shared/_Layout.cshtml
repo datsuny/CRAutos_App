@@ -32,15 +32,17 @@
 
                         @if (Session["VendedorLogeado"] != null)
                         {
-                            <li class="nav-link">@Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link" })</li>
-                            <li class="nav-link">@Html.ActionLink("Publicaciones", "PublicacionesVehiculos", "Publicaciones", null, new { @class = "nav-link" })</li>
-                            <li class="nav-link">@Html.ActionLink("Ver autos en venta", "VerCarros", "VerCarros", null, new { @class = "nav-link" })</li>
-                            <li class="nav-link">@Html.ActionLink("Editar Perfil", "EditarPerfil", "EditarPerfil", null, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Publicaciones", "PublicacionesVehiculos", "Publicaciones", null, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Ver autos en venta", "VerCarros", "VerCarros", null, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Editar Perfil", "EditarPerfil", "EditarPerfil", null, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Buscar Carros", "filtroDetalles", "VerCarros", null, new { @class = "nav-link" })</li>
                         }
                         else
                         {
                             <li>@Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link" })</li>
                             <li>@Html.ActionLink("Ver autos en venta", "VerCarros", "VerCarros", null, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Buscar Carros", "filtroDetalles", "VerCarros", null, new { @class = "nav-link" })</li>
                         }
                     </ul>
                     <ul class="navbar-nav search-right mt-lg-0 mt-2">

@@ -26,29 +26,89 @@ namespace CRAutos_App.Controllers
                 return View(publicacion);
             }
         }
-        [HttpGet]
-        public ActionResult mostrarDetalles(CRAutos_App.Models.TBPublicaciones id)
-        {
+        //[HttpGet]
+        //public ActionResult mostrarDetalles(CRAutos_App.Models.TBPublicaciones id)
+        //{
             
-            modeloPublicaciones mPublicaciones = new modeloPublicaciones();
-            var respuesta = mPublicaciones.mostrarTodaPublicacion();
+        //    modeloPublicaciones mPublicaciones = new modeloPublicaciones();
+        //    var respuesta = mPublicaciones.mostrarTodaPublicacion();
 
-            List<SelectListItem> combo = new List<SelectListItem>();
+        //    List<SelectListItem> combo = new List<SelectListItem>();
 
-            foreach(var item in respuesta)
+        //    foreach(var item in respuesta)
+        //    {
+        //        combo.Add(new SelectListItem
+        //        {
+        //            Value = item.IDPublicacion.ToString(),
+        //            Text = item.Descripcion
+        //        });
+        //    }
+
+        //    ViewBag.Data = combo;
+
+        //    var publicacionFiltrada = respuesta.Where(x => x.IDPublicacion == id.IDPublicacion).ToList();
+            
+        //    return View("mostrarDetalles", publicacionFiltrada);
+        //}
+
+        [HttpGet]
+        public ActionResult filtroDetalles()
+        {
+
+            try
             {
-                combo.Add(new SelectListItem
+                FiltroVehiculos filtroM = new FiltroVehiculos();
+
+                var consulta = filtroM.obtenerStatus();
+
+                List<SelectListItem> listaStatus = new List<SelectListItem>();
+                foreach (var item in consulta)
                 {
-                    Value = item.IDPublicacion.ToString(),
-                    Text = item.Descripcion
-                });
+                    listaStatus.Add(new SelectListItem
+                    {
+                        Value = item.IDEstatus.ToString(),
+                        Text = item.Estatus
+                    });
+                }
+                ViewBag.listaStatus = listaStatus;
+
+                return View();
+            }
+            catch (Exception)
+            {
+                return View("~/Views/Shared/ErrorPagina.cshtml");
             }
 
-            ViewBag.Data = combo;
+        }
 
-            var publicacionFiltrada = respuesta.Where(x => x.IDPublicacion == id.IDPublicacion).ToList();
-            
-            return View("mostrarDetalles", publicacionFiltrada);
+        [HttpGet]
+        public ActionResult mostrarResultadoFiltro(CRAutos_App.ETL.Filtrar datos)
+        {
+
+            try
+            {
+                FiltroVehiculos filtroM = new FiltroVehiculos();
+
+
+                datos.listaDatos = filtroM.obtenerPublicaciones(datos);
+
+
+
+                if (datos.listaDatos.Count > 0)
+                {
+                    return View(datos);
+                }
+                else
+                {
+                    return View(datos);
+                }
+
+            }
+            catch (Exception)
+            {
+                return View("~/Views/Shared/ErrorPagina.cshtml");
+            }
+
         }
 
     }
