@@ -16,6 +16,14 @@ namespace CRAutos_App.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult CerrarSesion()
+        {
+            Session.Abandon();
+            Session["VendedorLogeado"] = null;
+            return RedirectToAction("Index","Home");
+        }
+
         [HttpPost]
         public ActionResult IniciarSesion(Vendedor vendedor)
         {

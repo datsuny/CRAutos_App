@@ -30,38 +30,11 @@ CREATE TABLE [dbo].[TBMarca](
 GO
 
 /*---------------------------------------------------------------------------------------------------------*/
-CREATE TABLE [dbo].[TBModelo](
-	[IDModelo] [bigint] IDENTITY(1,1) NOT NULL,
-	[NombreModelo] [varchar](255) NOT NULL,
-	[IDMarca] [bigint] NOT NULL,
- CONSTRAINT [PK_TBModelo] PRIMARY KEY CLUSTERED 
-(
-	[IDModelo] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-
-/*FK DEL MODELO PARA LAS MARCAS*/
-ALTER TABLE [dbo].[TBModelo]  WITH CHECK ADD  CONSTRAINT [FK_Marca] FOREIGN KEY([IDMarca])
-REFERENCES [dbo].[TBMarca] ([IDMarca])
-GO
-
-ALTER TABLE [dbo].[TBModelo] CHECK CONSTRAINT [FK_Marca]
-GO
-
-/*---------------------------------------------------------------------------------------------------------*/
 CREATE TABLE [dbo].[TBVehiculo](
 	[IDVehiculo] [bigint] IDENTITY(1,1) NOT NULL,
 	[Matricula] [varchar](50) NOT NULL,
-	[Kilometraje] [decimal] NOT NULL,
-	[Cilindraje] [varchar](50) NOT NULL,
-	[Transmision] [varchar](50) NOT NULL,
-	[Color] [varchar](50) NOT NULL,
-	[NumeroPuertas] [int] NOT NULL,
-	[Año] [int] NOT NULL,
-	[Combustible] [varchar](50) NOT NULL,
 	[IDMarca][bigint] NULL,
-	[IDModelo][bigint] NULL,
+	[TipoModelo] [varchar](60) NOT NULL,
  CONSTRAINT [PK_TBVehiculo] PRIMARY KEY CLUSTERED 
 (
 	[IDVehiculo] ASC
@@ -77,13 +50,32 @@ GO
 ALTER TABLE [dbo].[TBVehiculo] CHECK CONSTRAINT [FK_IDMarca]
 GO
 
-/*FK DE LLENAR MODELO DE LAS MARCAS*/
-ALTER TABLE [dbo].[TBVehiculo]  WITH CHECK ADD  CONSTRAINT [FK_IDModelo] FOREIGN KEY([IDModelo])
-REFERENCES [dbo].[TBModelo] ([IDModelo])
+/*---------------------------------------------------------------------------------------------------------*/
+CREATE TABLE [dbo].[TBDetalleVehiculo](
+	[IDDetalleVehiculo] [bigint] IDENTITY(1,1) NOT NULL,
+	[IDVehiculo] [bigint]  NOT NULL,
+	[Kilometraje] [decimal] NOT NULL,
+	[Cilindraje] [varchar](50) NOT NULL,
+	[Transmision] [varchar](50) NOT NULL,
+	[Color] [varchar](50) NOT NULL,
+	[NumeroPuertas] [int] NOT NULL,
+	[Año] [int] NOT NULL,
+	[Combustible] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_TBDetalleVehiculo] PRIMARY KEY CLUSTERED 
+(
+	[IDDetalleVehiculo] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[TBVehiculo] CHECK CONSTRAINT [FK_IDModelo]
+/*FK DEL VEHICULO PARA EL DETALLE VEHICULO*/
+ALTER TABLE [dbo].[TBDetalleVehiculo]  WITH CHECK ADD  CONSTRAINT [FK_IDVehiculo] FOREIGN KEY([IDVehiculo])
+REFERENCES [dbo].[TBVehiculo] ([IDVehiculo])
 GO
+
+ALTER TABLE [dbo].[TBDetalleVehiculo] CHECK CONSTRAINT [FK_IDVehiculo]
+GO
+
 /*---------------------------------------------------------------------------------------------------------*/
 CREATE TABLE [dbo].[TBExtrasVehiculo](
 	[IDExtraVehiculo] [bigint] IDENTITY(1,1) NOT NULL,
@@ -105,11 +97,11 @@ ALTER TABLE [dbo].[TBExtrasVehiculo] CHECK CONSTRAINT [FK_IDExtra]
 GO
 
 /*FK DE EXTRAS PARA EL VEHICULO */
-ALTER TABLE [dbo].[TBExtrasVehiculo]  WITH CHECK ADD  CONSTRAINT [FK_IDVehiculo] FOREIGN KEY([IDVehiculo])
+ALTER TABLE [dbo].[TBExtrasVehiculo]  WITH CHECK ADD  CONSTRAINT [FK_IDVehiculos] FOREIGN KEY([IDVehiculo])
 REFERENCES [dbo].[TBVehiculo] ([IDVehiculo])
 GO
 
-ALTER TABLE [dbo].[TBExtrasVehiculo] CHECK CONSTRAINT [FK_IDVehiculo]
+ALTER TABLE [dbo].[TBExtrasVehiculo] CHECK CONSTRAINT [FK_IDVehiculos]
 GO
 
 
@@ -264,21 +256,45 @@ GO
 
 ALTER TABLE [dbo].[TBPublicaciones] CHECK CONSTRAINT [FK_IDCondicionPublicacion]
 GO
+/*-----------------------------------------------------------------------------------------*/
 
+/*Procedimiento almacenado*/
+create procedure mostrarPublicacion 
+as
+select a.TituloPublicacion, a.Fecha, a.Precio, a.Descripcion, a.Ubicacion,a.Imagen ,
+b.Kilometraje, b.Cilindraje, b.Transmision, b.Color, b.NumeroPuertas, b.Año, b.Combustible, 
+c.Nombre, c.Apellido1, c.Apellido2, c.Telefono, c.Correo 
+from TBPublicaciones a, TBDetalleVehiculo b,TBVendedor c
+where a.IDVehiculo = b.IDVehiculo and a.IDVendedor=c.IDVendedor;
+
+/*Area inserts a la base de datos */
 
 insert into TBTipoVendedor values('Vendedor casual');
 
+insert into TBMarca values ('Toyota');
+insert into TBMarca values ('Kia');
+insert into TBMarca values ('Nissan');
+insert into TBMarca values ('Hyundai');
+insert into TBMarca values ('Mazda');
+insert into TBMarca values ('Suzuki');
+insert into TBMarca values ('Mitsubishi');
+
+insert into TBCondicionVehiculo values('Usado');
+insert into TBCondicionVehiculo values('Nuevo');
+
+insert into TBEstatusPublicacion values('En venta');
+insert into TBEstatusPublicacion values('Vendido');
+
+insert into TBExtra values('Bolsas de aire');
+insert into TBExtra values('Sensores y cámara de visión trasera');
+insert into TBExtra values('Vidrios tintados');
+insert into TBExtra values('Vidrios eléctricos');
+insert into TBExtra values('Alarma');
+insert into TBExtra values('Aire acondicionado');
+insert into TBExtra values('Frenos ABS');
+insert into TBExtra values('Radio con USB/AUX');
+insert into TBExtra values('Bluetooth');
+insert into TBExtra values('Volante ajustable');
 
 
-insert into TBMarca values('Toyota')
-insert into TBMarca values('Ferrari')
-insert into TBMarca values('Nissan')
-insert into TBMarca values('Bmw')
-insert into TBMarca values('Hyundai')
 
-
-insert into TBCondicionVehiculo values('Nuevo')
-insert into TBCondicionVehiculo values('Usado')
-
-insert into TBEstatusPublicacion values('Vendido')
-insert into TBEstatusPublicacion values('En venta')
