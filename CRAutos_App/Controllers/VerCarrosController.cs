@@ -26,30 +26,7 @@ namespace CRAutos_App.Controllers
                 return View(publicacion);
             }
         }
-        //[HttpGet]
-        //public ActionResult mostrarDetalles(CRAutos_App.Models.TBPublicaciones id)
-        //{
-            
-        //    modeloPublicaciones mPublicaciones = new modeloPublicaciones();
-        //    var respuesta = mPublicaciones.mostrarTodaPublicacion();
-
-        //    List<SelectListItem> combo = new List<SelectListItem>();
-
-        //    foreach(var item in respuesta)
-        //    {
-        //        combo.Add(new SelectListItem
-        //        {
-        //            Value = item.IDPublicacion.ToString(),
-        //            Text = item.Descripcion
-        //        });
-        //    }
-
-        //    ViewBag.Data = combo;
-
-        //    var publicacionFiltrada = respuesta.Where(x => x.IDPublicacion == id.IDPublicacion).ToList();
-            
-        //    return View("mostrarDetalles", publicacionFiltrada);
-        //}
+      
 
         [HttpGet]
         public ActionResult filtroDetalles()
@@ -59,18 +36,18 @@ namespace CRAutos_App.Controllers
             {
                 FiltroVehiculos filtroM = new FiltroVehiculos();
 
-                var consulta = filtroM.obtenerStatus();
+                var consulta = filtroM.ObtenerCondicion();
 
-                List<SelectListItem> listaStatus = new List<SelectListItem>();
+                List<SelectListItem> ListaCondicion = new List<SelectListItem>();
                 foreach (var item in consulta)
                 {
-                    listaStatus.Add(new SelectListItem
+                    ListaCondicion.Add(new SelectListItem
                     {
-                        Value = item.IDEstatus.ToString(),
-                        Text = item.Estatus
+                        Value = item.IDCondicion.ToString(),
+                        Text = item.CondicionVehiculo
                     });
                 }
-                ViewBag.listaStatus = listaStatus;
+                ViewBag.ListaCondicion = ListaCondicion;
 
                 return View();
             }
@@ -90,17 +67,17 @@ namespace CRAutos_App.Controllers
                 FiltroVehiculos filtroM = new FiltroVehiculos();
 
 
-                datos.listaDatos = filtroM.obtenerPublicaciones(datos);
+                var listaDatos = filtroM.obtenerPublicaciones(datos);
 
 
 
-                if (datos.listaDatos.Count > 0)
+                if (listaDatos.Count > 0)
                 {
-                    return View(datos);
+                    return View(listaDatos);
                 }
                 else
                 {
-                    return View(datos);
+                    return View(listaDatos);
                 }
 
             }

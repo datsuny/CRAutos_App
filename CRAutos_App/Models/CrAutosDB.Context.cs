@@ -40,6 +40,15 @@ namespace CRAutos_App.Models
         public virtual DbSet<TBVehiculo> TBVehiculo { get; set; }
         public virtual DbSet<TBVendedor> TBVendedor { get; set; }
     
+        public virtual ObjectResult<filtroPublicaciones_Result> filtroPublicaciones(Nullable<int> idCondicion)
+        {
+            var idCondicionParameter = idCondicion.HasValue ?
+                new ObjectParameter("idCondicion", idCondicion) :
+                new ObjectParameter("idCondicion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<filtroPublicaciones_Result>("filtroPublicaciones", idCondicionParameter);
+        }
+    
         public virtual ObjectResult<mostrarPublicacion_Result> mostrarPublicacion()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<mostrarPublicacion_Result>("mostrarPublicacion");

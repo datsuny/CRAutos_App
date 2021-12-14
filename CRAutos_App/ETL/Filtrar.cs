@@ -30,7 +30,7 @@ namespace CRAutos_App.ETL
 
         public string Ubicacion { get; set; }
 
-        public long IDCondicion { get; set; }
+        public int IDCondicion { get; set; }
 
         public long IDEstatus { get; set; }
 

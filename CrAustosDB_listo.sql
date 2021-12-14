@@ -267,6 +267,14 @@ c.Nombre, c.Apellido1, c.Apellido2, c.Telefono, c.Correo
 from TBPublicaciones a, TBDetalleVehiculo b,TBVendedor c
 where a.IDVehiculo = b.IDVehiculo and a.IDVendedor=c.IDVendedor;
 
+create procedure filtroPublicaciones (@idCondicion int)
+as
+select a.TituloPublicacion, a.Fecha, a.Precio, a.Descripcion, a.Ubicacion,a.Imagen ,
+b.Kilometraje, b.Cilindraje, b.Transmision, b.Color, b.NumeroPuertas, b.Año, b.Combustible, 
+c.Nombre, c.Apellido1, c.Apellido2, c.Telefono, c.Correo 
+from TBPublicaciones a, TBDetalleVehiculo b,TBVendedor c
+where a.IDVehiculo = b.IDVehiculo and a.IDVendedor=c.IDVendedor and @idCondicion = a.IDCondicion;
+
 /*Area inserts a la base de datos */
 
 insert into TBTipoVendedor values('Vendedor casual');

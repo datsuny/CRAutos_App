@@ -35,9 +35,9 @@
 
                           
 
-                            @Html.Label("Estatus del vehiculo:", new { @class = "col-lg-6 form-input" })
+                            @Html.Label("Condición del vehiculo:", new { @class = "col-lg-6 form-input" })
 
-                            @Html.DropDownListFor(Model => Model.IDEstatus, ViewBag.listaStatus as List<SelectListItem>, new { @class = "form-control" })
+                            @Html.DropDownListFor(Model => Model.IDCondicion, ViewBag.ListaCondicion as List<SelectListItem>, new { @class = "form-control" })
                             <br />
                             <br />
                             <br />
@@ -47,8 +47,6 @@
                             <button type="submit" class="btn btn-style">Buscar</button>
                         </div>
                     }
-
-
                 </div>
             </div>
         </div>

@@ -185,6 +185,9 @@
       <DependentUpon>CrAutosDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\EditarPerfilModel.cs" />
+    <Compile Include="Models\filtroPublicaciones_Result.cs">
+      <DependentUpon>CrAutosDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\FiltroVehiculos.cs" />
     <Compile Include="Models\ListasdedatosPublicacion.cs" />
     <Compile Include="Models\BuscarUsuario.cs" />

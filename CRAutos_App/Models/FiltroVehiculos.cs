@@ -9,24 +9,24 @@ namespace CRAutos_App.Models
     public class FiltroVehiculos
     {
 
-        public List<Filtrar> obtenerStatus()
+        public List<Filtrar> ObtenerCondicion()
         {
             using (CrAutosDBEntities contexto = new CrAutosDBEntities())
             {
-                var lista = (from x in contexto.TBEstatusPublicacion
+                var lista = (from x in contexto.TBCondicionVehiculo
                              select x).ToList();
-                List<Filtrar> listaStatus = new List<Filtrar>();
+                List<Filtrar> listaCondicion = new List<Filtrar>();
                 if (lista.Count > 0)
                 {
                     foreach (var item in lista)
                     {
-                        listaStatus.Add(new Filtrar
+                        listaCondicion.Add(new Filtrar
                         {
-                            IDEstatus = item.IDEstatus,
-                            Estatus = item.Estatus
+                            IDCondicion = (int)item.IDCondicion,
+                            CondicionVehiculo = item.CondicionVehiculo
                         });
                     }
-                    return listaStatus;
+                    return listaCondicion;
                 }
                 else
                 {
@@ -35,36 +35,47 @@ namespace CRAutos_App.Models
             }
         }
 
-        public List<Filtrar> obtenerPublicaciones(Filtrar datos)
+        public List<DetallesVehiculo> obtenerPublicaciones(Filtrar datos)
         {
             using (CrAutosDBEntities contexto = new CrAutosDBEntities())
             {
-                var consulta = (from x in contexto.TBPublicaciones
-                                where x.IDEstatus == datos.IDEstatus
-                                select x).ToList();
-                if (consulta.Count > 0)
+                var consulta = contexto.filtroPublicaciones(datos.IDCondicion);
+                if (consulta!=null)
                 {
-                    List<Filtrar> listaStatus = new List<Filtrar>();
+                    List<DetallesVehiculo> ListaFiltrada = new List<DetallesVehiculo>();
+
+
                     foreach (var item in consulta)
                     {
-                        listaStatus.Add(new Filtrar
+
+                        ListaFiltrada.Add(new DetallesVehiculo
                         {
-                            IDPublicacion = item.IDPublicacion,
                             TituloPublicacion = item.TituloPublicacion,
                             Descripcion = item.Descripcion,
-                            Precio = item.Precio,
-                            Ubicacion = item.Ubicacion,
                             Fecha = item.Fecha,
-                            Estatus = consultaStatus(item.IDEstatus),
-                            CondicionVehiculo = consultaCondicion(item.IDCondicion),
-                            Imagen = item.Imagen
+                            Ubicacion = item.Ubicacion,
+                            Kilometraje = item.Kilometraje,
+                            Cilindraje = item.Cilindraje,
+                            Transmision = item.Transmision,
+                            Color = item.Color,
+                            NumeroPuertas = item.NumeroPuertas,
+                            Año = item.Año,
+                            Combustible = item.Combustible,
+                            Nombre = item.Nombre,
+                            Apellido1 = item.Apellido1,
+                            Apellido2 = item.Apellido2,
+                            Telefono = item.Telefono,
+                            Correo = item.Correo,
+                            Imagen = item.Imagen,
+                            Precio = item.Precio
                         });
+
                     }
-                    return listaStatus;
+                    return ListaFiltrada;
                 }
                 else
                 {
-                    return new List<Filtrar>();
+                    return new List<DetallesVehiculo>();
                 }
             }
         }
